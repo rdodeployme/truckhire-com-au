@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Register your truck | TruckHire.com.au</title><meta name="description" content="Register as an owner and list your truck — business details, vehicle, compliance, photos, pricing and payouts.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="Register your truck | TruckHire.com.au"><meta property="og:description" content="Register as an owner and list your truck — business details, vehicle, compliance, photos, pricing and payouts."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><span class="eyebrow">List your truck</span><h1>Register your truck</h1><p class="muted" style="margin:0">About 10 minutes. Your progress saves as you go.</p></div></section>
+<div class="wrap" style="padding-top:20px;padding-bottom:40px">
+<div class="flow-wrap">
+<form class="flow" id="flow" novalidate>
+  <div class="stepper-head"><div class="stepper-count"></div><div class="stepper-progress"><span></span></div><ol class="stepper-bar"></ol></div>
+
+  <!-- 1 OWNER -->
+  <section class="step" data-label="Owner" data-validate="checkOwner">
+    <h2>About you</h2>
+    <div class="field"><span class="lbl">Listing as</span>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="entity" value="Private" required><span><span class="ico">🙋</span>Private owner<small>Personal vehicle</small></span></label>
+        <label class="choice"><input type="radio" name="entity" value="Sole trader"><span><span class="ico">🧰</span>Sole trader<small>ABN in my name</small></span></label>
+        <label class="choice"><input type="radio" name="entity" value="Company"><span><span class="ico">🏢</span>Company<small>Pty Ltd, trust or partnership</small></span></label>
+      </div></div>
+    <div class="grid-2">
+      <div class="field"><label for="oFirst">First name</label><input type="text" id="oFirst" autocomplete="given-name" required></div>
+      <div class="field"><label for="oLast">Last name</label><input type="text" id="oLast" autocomplete="family-name" required></div>
+      <div class="field"><label for="oEmail">Email</label><input type="email" id="oEmail" autocomplete="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" data-msg="Enter a valid email"></div>
+      <div class="field"><label for="oMobile">Mobile</label><input type="tel" id="oMobile" inputmode="tel" autocomplete="tel" placeholder="04xx xxx xxx" required pattern="(\+?61|0)4\d{2}\s?\d{3}\s?\d{3}" data-msg="Enter an Australian mobile"></div>
+    </div>
+    <div id="bizFields" hidden>
+      <div class="grid-2">
+        <div class="field"><label for="oAbn">ABN</label><input type="text" id="oAbn" inputmode="numeric" placeholder="11 digits" autocomplete="off"><small class="hint">Checked against the ATO checksum</small></div>
+        <div class="field"><label for="oBiz">Legal / entity name</label><input type="text" id="oBiz" autocomplete="organization"></div>
+        <div class="field"><label for="oTrading">Trading name <span class="muted">(optional)</span></label><input type="text" id="oTrading"></div>
+        <div class="field"><span class="lbl">Registered for GST?</span><div class="seg"><label><input type="radio" name="gst" value="yes" checked><span>Yes</span></label><label><input type="radio" name="gst" value="no"><span>No</span></label></div></div>
+      </div>
+    </div>
+    <div class="field"><label for="oAddr">Address</label><input type="text" id="oAddr" autocomplete="street-address" required placeholder="Street, suburb, state, postcode"></div>
+    <div class="field"><label for="oPw">Create a password</label><input type="password" id="oPw" autocomplete="new-password" required minlength="8" pattern=".{8,}" data-msg="At least 8 characters"></div>
+    <div class="step-actions"><a class="btn btn-ghost" href="list-your-truck.html">Back</a><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 2 VEHICLE -->
+  <section class="step" data-label="Truck">
+    <h2>Your truck</h2>
+    <div class="field"><span class="lbl">Type</span><div class="choice-grid" id="typeGrid"></div></div>
+    <div class="grid-2">
+      <div class="field"><label for="vMake">Make</label><input type="text" id="vMake" required placeholder="e.g. Isuzu"></div>
+      <div class="field"><label for="vModel">Model</label><input type="text" id="vModel" required placeholder="e.g. NLR 45-150"></div>
+      <div class="field"><label for="vYear">Year</label><input type="number" id="vYear" inputmode="numeric" min="1980" required></div>
+      <div class="field"><label for="vOdo">Odometer</label><div class="suffix"><input type="number" id="vOdo" inputmode="numeric" min="0" required><span>km</span></div></div>
+    </div>
+    <h3 style="margin-top:10px">Registration</h3>
+    <div class="grid-3">
+      <div class="field"><label for="vPlate">Plate</label><input type="text" id="vPlate" required autocomplete="off" style="text-transform:uppercase" pattern="[A-Za-z0-9 ]{2,9}" data-msg="2–9 letters/numbers"></div>
+      <div class="field"><label for="vState">State</label><select id="vState" required><option value="">Select</option><option>VIC</option><option>NSW</option><option>QLD</option><option>SA</option><option>WA</option><option>TAS</option><option>ACT</option><option>NT</option></select></div>
+      <div class="field"><label for="vRegExp">Rego expiry</label><input type="date" id="vRegExp" required data-check="futureDate"></div>
+    </div>
+    <div class="field"><label for="vVin">VIN</label><input type="text" id="vVin" required autocomplete="off" style="text-transform:uppercase" data-check="checkVin" placeholder="17 characters"><small class="hint">On the compliance plate or rego papers</small></div>
+    <h3 style="margin-top:10px">Weights &amp; size <span class="muted small" style="text-transform:none;font-family:var(--f-b)">from the compliance plate</span></h3>
+    <div class="grid-2">
+      <div class="field"><label for="vGvm">GVM</label><div class="suffix"><input type="number" id="vGvm" inputmode="numeric" min="1000" max="30000" required><span>kg</span></div></div>
+      <div class="field"><label for="vAxles">Axles</label><select id="vAxles" required><option value="2">2 axles</option><option value="3">3 axles</option><option value="4">4 axles</option></select></div>
+      <div class="field"><label for="vPayload">Payload</label><div class="suffix"><input type="number" id="vPayload" inputmode="numeric" min="100" required><span>kg</span></div></div>
+      <div class="field"><label for="vM3">Load volume <span class="muted">(if enclosed)</span></label><div class="suffix"><input type="number" id="vM3" inputmode="decimal" min="0" step="0.5"><span>m³</span></div></div>
+      <div class="field"><label for="vLen">Load length</label><div class="suffix"><input type="number" id="vLen" inputmode="decimal" step="0.1" min="0.5" required><span>m</span></div></div>
+      <div class="field"><label for="vWid">Load width</label><div class="suffix"><input type="number" id="vWid" inputmode="decimal" step="0.1" min="0.5" required><span>m</span></div></div>
+    </div>
+    <div id="licCalc" class="panel panel-sky" aria-live="polite"><b>Licence class</b><p class="muted small" style="margin:4px 0 0">Enter the GVM and axles — we'll work out the licence hirers need.</p></div>
+    <div class="grid-3">
+      <div class="field"><label for="vTrans">Transmission</label><select id="vTrans"><option>Auto</option><option>Manual</option></select></div>
+      <div class="field"><label for="vFuel">Fuel</label><select id="vFuel"><option>Diesel</option><option>Petrol</option><option>Electric</option><option>Hybrid</option></select></div>
+      <div class="field"><label for="vSeats">Seats</label><select id="vSeats"><option>2</option><option selected>3</option><option>5</option><option>6</option></select></div>
+    </div>
+    <div class="field"><span class="lbl">Features</span><div class="chips" id="featChips"></div></div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 3 COMPLIANCE -->
+  <section class="step" data-label="Compliance">
+    <h2>Compliance &amp; insurance</h2>
+    <div class="field"><div class="upload"><input type="file" accept="image/*,application/pdf" id="cRego" required data-msg="Upload your rego certificate"><div class="up-ico">📄</div><b>Registration certificate</b><small>Photo or PDF</small><div class="upload-prev"></div></div></div>
+    <h3>Insurance</h3>
+    <div class="field">
+      <label class="check"><input type="radio" name="ins" value="own" required checked><span><b>I have insurance that covers this truck being hired out</b><small>Comprehensive cover that permits hire to third parties.</small></span></label>
+      <label class="check"><input type="radio" name="ins" value="platform"><span><b>I want TruckHire owner cover</b><small>Being finalised with an insurer — register your interest and we'll contact you before you go live.</small></span></label>
+    </div>
+    <div id="insOwn">
+      <div class="grid-2">
+        <div class="field"><label for="iCo">Insurer</label><input type="text" id="iCo" required></div>
+        <div class="field"><label for="iPol">Policy number</label><input type="text" id="iPol" required></div>
+        <div class="field"><label for="iExp">Policy expiry</label><input type="date" id="iExp" required data-check="futureDate"></div>
+        <div class="field"><label for="iSum">Third-party property limit</label><select id="iSum" required><option value="">Select</option><option>$10 million</option><option>$20 million</option><option>$30 million+</option><option>Other</option></select></div>
+      </div>
+      <div class="field"><div class="upload"><input type="file" accept="image/*,application/pdf" id="cIns" required data-msg="Upload the certificate of currency"><div class="up-ico">🛡️</div><b>Certificate of currency</b><small>Photo or PDF</small><div class="upload-prev"></div></div></div>
+    </div>
+    <h3 style="margin-top:6px">Condition</h3>
+    <div class="grid-2">
+      <div class="field"><label for="cSvc">Last service date</label><input type="date" id="cSvc" required></div>
+      <div class="field"><label for="cSvcKm">Service interval</label><div class="suffix"><input type="number" id="cSvcKm" inputmode="numeric" value="15000"><span>km</span></div></div>
+    </div>
+    <div class="field" id="declO">
+      <label class="check"><input type="checkbox" required><span><b>The truck is roadworthy and registered for the way it'll be used</b><small>No outstanding defect notices or unrepaired recalls.</small></span></label>
+      <label class="check"><input type="checkbox" required><span><b>Brakes, tyres, lights and load restraint points are in good order</b><small>Checked before each hire.</small></span></label>
+      <label class="check" id="hvDecl" hidden><input type="checkbox"><span><b>Heavy vehicle registration and any NHVR permits are current</b><small>Applies to trucks over 4.5 t GVM.</small></span></label>
+    </div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 4 PHOTOS -->
+  <section class="step" data-label="Photos" data-validate="checkPhotos">
+    <h2>Photos</h2>
+    <p class="muted">Daylight, clean truck, whole vehicle in frame. The first photo becomes your cover image.</p>
+    <div class="grid-2" id="photoGrid"></div>
+    <div class="field"><div class="upload"><input type="file" accept="image/*" multiple id="pMore"><div class="up-ico">➕</div><b>More photos</b><small>Cab, tail-lift, tie points, anything useful</small><div class="upload-prev"></div></div></div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 5 PRICING -->
+  <section class="step" data-label="Pricing">
+    <h2>Price &amp; availability</h2>
+    <div class="panel panel-sky" id="priceHint"></div>
+    <div class="grid-2">
+      <div class="field"><label for="pRate">Daily rate</label><div class="prefix"><span>$</span><input type="number" id="pRate" inputmode="numeric" min="30" required></div></div>
+      <div class="field"><label for="pWeek">Weekly discount</label><select id="pWeek"><option value="0">None</option><option value="10" selected>10% off 7+ days</option><option value="15">15% off 7+ days</option><option value="20">20% off 7+ days</option></select></div>
+      <div class="field"><label for="pKm">Km included per day</label><div class="suffix"><input type="number" id="pKm" inputmode="numeric" value="150" required min="0"><span>km</span></div></div>
+      <div class="field"><label for="pXkm">Extra km rate</label><div class="prefix"><span>$</span><input type="number" id="pXkm" inputmode="decimal" step="0.05" value="0.50" required min="0"></div></div>
+      <div class="field"><label for="pBond">Bond</label><div class="prefix"><span>$</span><input type="number" id="pBond" inputmode="numeric" step="50" required min="0"></div></div>
+      <div class="field"><label for="pMin">Minimum hire</label><select id="pMin"><option value="1">1 day</option><option value="2">2 days</option><option value="3">3 days</option></select></div>
+    </div>
+    <div class="field"><span class="lbl">Booking style</span>
+      <label class="check"><input type="radio" name="instant" value="0" checked><span><b>I'll approve each request</b><small>You have 12 hours to accept (proposed).</small></span></label>
+      <label class="check"><input type="radio" name="instant" value="1"><span><b>⚡ Instant book</b><small>Verified drivers with the right licence can book straight away. More bookings.</small></span></label>
+    </div>
+    <div class="field"><span class="lbl">Days it's usually available</span><div class="chips" id="dowChips"></div></div>
+    <h3>Pick-up location</h3>
+    <div class="grid-2">
+      <div class="field"><label for="pSub">Suburb</label><input type="text" id="pSub" required autocomplete="address-level2"></div>
+      <div class="field"><label for="pPc">Postcode</label><input type="text" id="pPc" inputmode="numeric" required pattern="\d{4}" data-msg="4 digits"></div>
+      <div class="field"><label for="pCity">Nearest city</label><select id="pCity" required><option value="">Select</option><option>Melbourne</option><option>Brisbane</option><option>Sydney</option><option>Adelaide</option><option>Perth</option><option>Other</option></select></div>
+    </div>
+    <div class="field"><label for="pTitle">Listing title</label><input type="text" id="pTitle" required maxlength="60"><small class="hint">We've suggested one — make it specific.</small></div>
+    <div class="field"><label for="pDesc">Description <span class="muted">(optional)</span></label><textarea id="pDesc" placeholder="What's it great for? Anything hirers should know?"></textarea></div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 6 PAYOUTS -->
+  <section class="step" data-label="Payouts">
+    <h2>Payouts &amp; agreement</h2>
+    <div class="notice"><span class="notice-ico">i</span><div><b>Prototype — don't enter real bank details.</b>Use 062-000 / 12345678 to test.</div></div>
+    <div class="field"><label for="bName">Account name</label><input type="text" id="bName" required autocomplete="off"></div>
+    <div class="grid-2">
+      <div class="field"><label for="bBsb">BSB</label><input type="text" id="bBsb" inputmode="numeric" required placeholder="000-000" pattern="\d{3}-?\d{3}" data-msg="6 digits"></div>
+      <div class="field"><label for="bAcc">Account number</label><input type="text" id="bAcc" inputmode="numeric" required pattern="\d{6,10}" data-msg="6–10 digits"></div>
+    </div>
+    <div class="panel" id="payPreview"></div>
+    <div class="field">
+      <label class="check"><input type="checkbox" required><span><b>I agree to the <a href="terms.html" target="_blank">owner terms</a></b><small>Including the commission on completed hires and the cancellation policy.</small></span></label>
+      <label class="check"><input type="checkbox" required><span><b>The information I've given is true and I'm authorised to hire out this vehicle</b><small>If it's financed or leased, the financier allows it.</small></span></label>
+    </div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Submit for review</button></div>
+  </section>
+
+  <section class="step" data-label="Done"><div class="success" id="done"></div></section>
+</form>
+
+<aside class="flow-side"><div class="book-box always" id="preview"><b style="color:var(--navy)">Your listing preview</b><p class="small muted">Fills in as you go.</p></div></aside>
+</div>
+</div>
+
+<script>
+const FEATS = ['Tail-lift', 'Loading ramp', 'Tow bar', 'Tie rails', 'Reversing camera', 'Hydraulic tipper', 'Curtain sides', 'Drop sides', 'Freezer unit', 'Winch', 'GPS', 'Apple CarPlay'];
+const SHOTS = [['front', 'Front ¾'], ['side', 'Side'], ['rear', 'Rear'], ['load', 'Load area']];
+const PH = {};
+function futureDate(f) { return f.value && f.value <= iso(new Date()) ? 'Must be a future date' : ''; }
+function checkVin(f) { const v = f.value.trim().toUpperCase(); return !/^[A-HJ-NPR-Z0-9]{17}$/.test(v) ? '17 characters, no I, O or Q' : ''; }
+function checkOwner() {
+  const ent = ($('[name=entity]:checked') || {}).value;
+  if (ent && ent !== 'Private') {
+    const a = $('#oAbn').value;
+    if (!validABN(a)) { setErr($('#oAbn'), 'That ABN isn\'t valid'); $('#oAbn').focus(); return 'Check your ABN'; }
+    if (!$('#oBiz').value.trim()) { setErr($('#oBiz'), 'Required'); return 'Add your legal / entity name'; }
+  }
+  return '';
+}
+function checkPhotos() { const n = SHOTS.filter(s => PH[s[0]]).length; return n < 4 ? `Add all 4 required photos (${n}/4 done)` : ''; }
+
+/* downscale photos so they fit in browser storage */
+function shrink(file, max = 900) {
+  return new Promise(res => {
+    const r = new FileReader();
+    r.onload = () => { const img = new Image(); img.onload = () => {
+      const s = Math.min(1, max / Math.max(img.width, img.height)); const c = document.createElement('canvas');
+      c.width = img.width * s; c.height = img.height * s; c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL('image/jpeg', .72)); }; img.src = r.result; };
+    r.readAsDataURL(file);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  wireUploads();
+  const flow = $('#flow');
+  $('#typeGrid').innerHTML = TH_TYPES.map(t => `<label class="choice"><input type="radio" name="vtype" value="${t.id}" required ${t.id === 'box' ? 'checked' : ''}><span>${truckSVG(t.id)}${t.short}</span></label>`).join('');
+  $('#featChips').innerHTML = FEATS.map(f => `<label><input type="checkbox" value="${f}"><span>${f}</span></label>`).join('');
+  $('#dowChips').innerHTML = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => `<label><input type="checkbox" value="${d}" ${i >= 5 ? 'checked' : ''}><span>${d}</span></label>`).join('');
+  $('#vYear').max = new Date().getFullYear() + 1;
+  $('#photoGrid').innerHTML = SHOTS.map(([k, l]) => `<div class="field"><div class="upload" data-shot="${k}"><input type="file" accept="image/*" capture="environment"><div class="up-ico">📷</div><b>${l}</b><small>Required</small><div class="upload-prev"></div></div></div>`).join('');
+  $$('#photoGrid .upload input').forEach(inp => inp.addEventListener('change', async () => {
+    const box = inp.closest('.upload'); if (!inp.files[0]) return;
+    PH[box.dataset.shot] = await shrink(inp.files[0]);
+    $('.upload-prev', box).innerHTML = `<img src="${PH[box.dataset.shot]}" alt="">`; box.classList.add('has-file'); preview();
+  }));
+  $('#pMore').addEventListener('change', async e => { PH.more = []; for (const f of [...e.target.files].slice(0, 6)) PH.more.push(await shrink(f, 700)); });
+
+  // entity toggle
+  flow.addEventListener('change', e => {
+    if (e.target.name === 'entity') {
+      const biz = e.target.value !== 'Private'; $('#bizFields').hidden = !biz;
+      if (biz) $('#oBiz').value = $('#oBiz').value || '';
+    }
+    if (e.target.name === 'ins') { const own = e.target.value === 'own'; $('#insOwn').hidden = !own; $$('#insOwn [data-req]').forEach(x => x.required = own); $$('#insOwn input, #insOwn select').forEach(x => { if (x.id !== 'cSvcKm') x.required = own; }); }
+    preview();
+  });
+  $('#oAbn').addEventListener('input', e => {
+    e.target.value = fmtABN(e.target.value);
+    const ok = validABN(e.target.value), w = e.target.closest('.field');
+    w.classList.toggle('ok', ok); let m = $('.ok-msg', w); if (ok && !m) w.insertAdjacentHTML('beforeend', '<small class="ok-msg">✓ Valid ABN format</small>'); if (!ok && m) m.remove();
+  });
+  $('#vVin').addEventListener('input', e => e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 17));
+  $('#bBsb').addEventListener('input', e => { const v = e.target.value.replace(/\D/g, '').slice(0, 6); e.target.value = v.length > 3 ? v.slice(0, 3) + '-' + v.slice(3) : v; });
+
+  // licence class calc
+  function licCalc() {
+    const g = +$('#vGvm').value, ax = +$('#vAxles').value;
+    $('#hvDecl').hidden = !(g > 4500); $('#hvDecl input').required = g > 4500;
+    if (!g) return;
+    const c = licenceForVehicle(g, ax), L = TH_LICENCES.find(l => l.code === c);
+    $('#licCalc').innerHTML = `<div style="display:flex;gap:14px;align-items:center"><span class="lic-code" style="font-size:2.4rem">${c}</span><div><b>Hirers need ${L.name}</b><div class="small muted">${L.gvm}. ${c === 'C' ? 'Great — the biggest pool of drivers can hire it.' : 'Only drivers holding ' + c + ' or higher can book.'}</div></div></div>
+      ${g > 12000 ? '<p class="small" style="margin:10px 0 0"><b>Over 12 t GVM:</b> fatigue rules and work diaries may apply to hirers. We show this to them at booking.</p>' : ''}`;
+  }
+  ['vGvm', 'vAxles'].forEach(id => $('#' + id).addEventListener('input', () => { licCalc(); preview(); }));
+
+  function pricingDefaults() {
+    const type = ($('[name=vtype]:checked') || {}).value || 'box';
+    const same = TH_TRUCKS_SAMPLE.filter(t => t.type === type);
+    const lo = Math.min(...same.map(t => t.dayRate)), hi = Math.max(...same.map(t => t.dayRate));
+    $('#priceHint').innerHTML = `<b>Similar ${TH_TYPE[type].name.toLowerCase()} on TruckHire: ${money(lo)}–${money(hi)}/day</b><div class="small muted">Sample listings — price competitively for your first few hires.</div>`;
+    if (!$('#pRate').value) $('#pRate').value = Math.round((lo + hi) / 2 / 10) * 10;
+    if (!$('#pBond').value) $('#pBond').value = +$('#vGvm').value > 4500 ? 1000 : 500;
+    if (!$('#pTitle').value) $('#pTitle').value = `${$('#vYear').value || ''} ${$('#vMake').value} ${$('#vModel').value} ${TH_TYPE[type].short.toLowerCase()}`.replace(/\s+/g, ' ').trim();
+  }
+  function payPreview() {
+    const r = +$('#pRate').value || 0, net = r * (1 - TH_CONFIG.ownerCommissionPct);
+    $('#payPreview').innerHTML = `<div class="qline"><span>Your daily rate</span><span>${money(r)}</span></div><div class="qline"><span>Commission (${Math.round(TH_CONFIG.ownerCommissionPct * 100)}%, proposed)</span><span>−${money(r - net, 2)}</span></div><div class="qline total"><span>You receive per day</span><span>${money(net, 2)}</span></div>`;
+  }
+  function draft() {
+    return {
+      type: ($('[name=vtype]:checked') || {}).value || 'box', make: $('#vMake').value, model: $('#vModel').value, year: +$('#vYear').value || '',
+      gvm: +$('#vGvm').value, axles: +$('#vAxles').value, payload: +$('#vPayload').value, m3: +$('#vM3').value || 0,
+      deck: $('#vLen').value && $('#vWid').value ? `${$('#vLen').value} × ${$('#vWid').value} m` : '', trans: $('#vTrans').value, fuel: $('#vFuel').value, seats: +$('#vSeats').value,
+      features: $$('#featChips input:checked').map(i => i.value), dayRate: +$('#pRate').value, kmDay: +$('#pKm').value, extraKm: +$('#pXkm').value, bond: +$('#pBond').value,
+      instant: ($('[name=instant]:checked') || {}).value === '1', suburb: $('#pSub').value, city: $('#pCity').value, title: $('#pTitle').value
+    };
+  }
+  function preview() {
+    const d = draft(); d.licence = licenceForVehicle(d.gvm, d.axles);
+    const img = PH.front ? `<img src="${PH.front}" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px" alt="">` : `<div style="background:var(--sky);border-radius:12px;padding:12px">${truckSVG(d.type, { big: d.axles >= 3 })}</div>`;
+    $('#preview').innerHTML = `<b style="color:var(--navy)">Listing preview</b><div style="margin:10px 0">${img}</div>
+      <h3 style="font-size:1.3rem;margin:0">${esc(d.title || ((d.make || 'Your') + ' ' + (d.model || TH_TYPE[d.type].short)))}</h3>
+      <p class="small muted" style="margin:4px 0 10px">${d.suburb ? esc(d.suburb) + ' · ' : ''}${d.gvm ? (d.licence === 'C' ? 'Car licence' : d.licence + ' licence') : 'Licence: add GVM'}${d.payload ? ' · ' + (d.payload / 1000).toFixed(1) + ' t payload' : ''}</p>
+      ${d.dayRate ? `<div><span class="price-big" style="font-size:2rem">${money(d.dayRate)}</span> <span class="muted">/day</span></div>` : ''}
+      ${d.instant ? '<span class="pill p-navy" style="margin-top:8px">⚡ Instant book</span>' : ''}`;
+    payPreview();
+  }
+  flow.addEventListener('input', () => preview());
+
+  // save progress (no files, no bank, no password)
+  const KEEP = ['oFirst', 'oLast', 'oEmail', 'oMobile', 'oAbn', 'oBiz', 'oTrading', 'oAddr', 'vMake', 'vModel', 'vYear', 'vOdo', 'vPlate', 'vState', 'vRegExp', 'vVin', 'vGvm', 'vAxles', 'vPayload', 'vM3', 'vLen', 'vWid', 'pSub', 'pPc', 'pCity'];
+  const saved = Store.get('ownerDraft', {});
+  KEEP.forEach(k => { if (saved[k]) $('#' + k).value = saved[k]; });
+  if (saved.entity) { const r = $(`[name=entity][value="${saved.entity}"]`); if (r) { r.checked = true; $('#bizFields').hidden = saved.entity === 'Private'; } }
+  if (saved.vtype) { const r = $(`[name=vtype][value="${saved.vtype}"]`); if (r) r.checked = true; }
+  flow.addEventListener('change', () => { const o = {}; KEEP.forEach(k => o[k] = $('#' + k).value); o.entity = ($('[name=entity]:checked') || {}).value; o.vtype = ($('[name=vtype]:checked') || {}).value; Store.set('ownerDraft', o); });
+  if (Object.keys(saved).length) toast('Picked up where you left off');
+  licCalc(); preview();
+
+  Stepper(flow, {
+    onStep(i) {
+      if (i === 4) pricingDefaults();
+      if (i === 5) { $('#bName').value = $('#bName').value || ($('#oBiz').value || ($('#oFirst').value + ' ' + $('#oLast').value)).trim(); }
+      if (i === 6) finish();
+      preview();
+    }
+  });
+
+  function finish() {
+    const d = draft();
+    const id = 'my-' + Date.now().toString(36);
+    const t = Object.assign(d, {
+      id, mine: true, owner: ($('[name=entity]:checked') || {}).value === 'Private' ? 'Private' : 'Business', ownerName: $('#oTrading').value || $('#oBiz').value || $('#oFirst').value,
+      state: $('#vState').value, licence: licenceForVehicle(d.gvm, d.axles), photo: PH.front || null,
+      photos: [PH.front, PH.side, PH.rear, PH.load, ...(PH.more || [])].filter(Boolean), status: 'In review', created: Date.now(),
+      plate: $('#vPlate').value.toUpperCase(), dow: $$('#dowChips input:checked').map(i => i.value), weeklyDisc: +$('#pWeek').value, minDays: +$('#pMin').value
+    });
+    t.title = t.title || `${t.make} ${t.model}`;
+    let ok = true;
+    try { localStorage.setItem('th:test', '1'); const ls = Store.get('listings', []); ls.unshift(t); localStorage.setItem('th:listings', JSON.stringify(ls)); }
+    catch (e) { ok = false; t.photo = null; t.photos = []; const ls = Store.get('listings', []); ls.unshift(t); Store.set('listings', ls); }
+    // demo requests so the owner dashboard has something to act on
+    const now = new Date(); const dd = n => { const x = new Date(now); x.setDate(x.getDate() + n); return iso(x); };
+    const q1 = calcQuote(t, { days: 2, km: t.kmDay * 2, cover: 'standard' }), q2 = calcQuote(t, { days: 1, km: t.kmDay, cover: 'basic' });
+    Store.set('bookings', [
+      { ref: 'TH-DEMO1', truckId: id, truckTitle: t.title, type: t.type, from: dd(5), to: dd(6), fromTime: '07:30', toTime: '17:00', driver: 'Sample hirer A', licence: t.licence === 'C' ? 'C' : t.licence, purpose: 'Moving house', total: q1.total, payout: q1.ownerPayout, status: 'requested', created: Date.now(), ownedByMe: true, sample: true },
+      { ref: 'TH-DEMO2', truckId: id, truckTitle: t.title, type: t.type, from: dd(11), to: dd(11), fromTime: '08:00', toTime: '16:00', driver: 'Sample hirer B', licence: 'HR', purpose: 'Building / landscaping', total: q2.total, payout: q2.ownerPayout, status: 'requested', created: Date.now(), ownedByMe: true, sample: true },
+      ...Store.get('bookings', [])]);
+    Store.set('user', Object.assign(user() || {}, { first: $('#oFirst').value, last: $('#oLast').value, email: $('#oEmail').value, mobile: $('#oMobile').value, roles: Array.from(new Set([...(user()?.roles || []), 'owner'])) }));
+    Store.set('ownerDraft', {});
+    $('#done').innerHTML = `<div class="success-badge">✓</div><h2>Truck submitted!</h2><div class="ref">${esc(t.plate)}</div>
+      <p class="lede" style="margin:0 auto 18px">We'll check your ABN, rego and insurance documents. Most reviews are done within one business day (proposed).</p>
+      <ul class="vlist" style="max-width:480px;margin:0 auto 22px;text-align:left">
+        <li><span class="tick">✓</span>Owner details<span class="st ok">Received</span></li>
+        <li><span class="spinner"></span>Registration check<span class="st">In review</span></li>
+        <li><span class="spinner"></span>Insurance check<span class="st">In review</span></li>
+        <li><span class="tick">✓</span>Photos &amp; pricing<span class="st ok">Received</span></li>
+      </ul>
+      ${ok ? '' : '<p class="small muted">Photos were too large to keep in this browser preview, so the illustration is shown instead.</p>'}
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn btn-lg" href="dashboard.html">Go to my dashboard</a><a class="btn btn-ghost btn-lg" href="truck.html?id=${id}">View listing</a></div>`;
+    flow.querySelector('.stepper-head').hidden = true; $('.flow-side').hidden = true;
+    scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script><script src="assets/js/quote.js"></script>
+</body></html>

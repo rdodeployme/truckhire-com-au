@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My dashboard | TruckHire.com.au</title><meta name="description" content="Your hires, your trucks, booking requests and payouts.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="My dashboard | TruckHire.com.au"><meta property="og:description" content="Your hires, your trucks, booking requests and payouts."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><span class="eyebrow" id="hello">Dashboard</span><h1>Your account</h1></div></section>
+<div class="wrap">
+  <div class="dash">
+    <div>
+      <div class="kpis" id="kpis"></div>
+      <div class="tabs" role="tablist" id="tabs" style="margin-top:18px">
+        <button role="tab" data-t="requests" aria-selected="true">Requests</button>
+        <button role="tab" data-t="hires" aria-selected="false">My hires</button>
+        <button role="tab" data-t="trucks" aria-selected="false">My trucks</button>
+        <button role="tab" data-t="payouts" aria-selected="false">Payouts</button>
+      </div>
+      <div id="pane"></div>
+    </div>
+    <aside>
+      <div class="panel"><h3>Verification</h3><ul class="vlist" id="verif"></ul></div>
+      <div class="panel panel-sky"><h3>Quick actions</h3><div style="display:grid;gap:8px"><a class="btn" href="owner-register.html">+ Add a truck</a><a class="btn btn-ghost" href="trucks.html">Find a truck</a><button class="btn btn-ghost" id="reset" type="button">Reset prototype data</button></div></div>
+      <p class="small muted">Prototype: this dashboard reads from this browser only. In production it's your secure account.</p>
+    </aside>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const u = user() || {};
+  if (u.first) $('#hello').textContent = 'G\'day ' + u.first;
+  let tab = new URLSearchParams(location.search).get('tab') || 'requests';
+  const thumb = b => { const t = findTruck(b.truckId); return t && t.photo ? `<img src="${t.photo}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px" alt="">` : truckSVG(b.type || (t && t.type) || 'box'); };
+  const dfmt = d => new Date(d).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+  const statusPill = s => ({ requested: '<span class="pill">Awaiting reply</span>', confirmed: '<span class="pill p-blue">Confirmed</span>', declined: '<span class="pill p-grey">Declined</span>', completed: '<span class="pill p-navy">Completed</span>' }[s] || s);
+
+  function draw() {
+    const bookings = Store.get('bookings', []), listings = Store.get('listings', []);
+    const mine = new Set(listings.map(l => l.id));
+    const incoming = bookings.filter(b => mine.has(b.truckId));
+    const myHires = bookings.filter(b => !mine.has(b.truckId));
+    const earned = incoming.filter(b => b.status === 'confirmed' || b.status === 'completed').reduce((s, b) => s + (b.payout || 0), 0);
+    $('#kpis').innerHTML = `
+      <div class="kpi k-blue"><span>Requests</span><b>${incoming.filter(b => b.status === 'requested').length}</b></div>
+      <div class="kpi"><span>Upcoming hires</span><b>${myHires.filter(b => b.status !== 'declined').length}</b></div>
+      <div class="kpi"><span>Trucks listed</span><b>${listings.length}</b></div>
+      <div class="kpi"><span>Payouts due</span><b>${money(earned, 0)}</b></div>`;
+    $$('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.t === tab));
+    let h = '';
+    if (tab === 'requests') {
+      h = incoming.length ? incoming.map(b => {
+        const t = findTruck(b.truckId); const ok = t ? canDrive(b.licence, t.licence) : true;
+        return `<div class="req"><div class="req-top"><div class="thumb">${thumb(b)}</div><div style="flex:1;min-width:0"><b style="color:var(--navy)">${esc(b.driver)}</b> ${b.sample ? '<span class="pill p-grey">Sample</span>' : ''}<div class="small muted">${esc(b.truckTitle)} · ${dfmt(b.from)}${b.to !== b.from ? '–' + dfmt(b.to) : ''} · ${esc(b.purpose || '')}</div></div>${statusPill(b.status)}</div>
+          <div class="small" style="display:flex;gap:14px;flex-wrap:wrap"><span>✓ ID verified</span><span>${ok ? '✓' : '✕'} ${b.licence} licence ${ok ? 'covers your truck' : 'does not cover it'}</span><span><b>You receive ${money(b.payout, 2)}</b></span></div>
+          ${b.status === 'requested' ? `<div class="req-actions"><button class="btn btn-ghost" data-act="decline" data-ref="${b.ref}">Decline</button><button class="btn" data-act="accept" data-ref="${b.ref}">Accept</button></div>` : ''}</div>`;
+      }).join('') : `<div class="empty"><h3>No requests yet</h3><p class="muted">List a truck and requests from verified drivers land here.</p><a class="btn" href="owner-register.html">List a truck</a></div>`;
+    }
+    if (tab === 'hires') {
+      h = myHires.length ? myHires.map(b => `<div class="req"><div class="req-top"><div class="thumb">${thumb(b)}</div><div style="flex:1;min-width:0"><b style="color:var(--navy)">${esc(b.truckTitle)}</b><div class="small muted">${b.ref} · ${dfmt(b.from)} ${b.fromTime || ''} → ${dfmt(b.to)} ${b.toTime || ''}</div></div>${statusPill(b.status)}</div><div class="small">Total ${money(b.total, 2)} · ${esc(b.purpose || '')}</div></div>`).join('')
+        : `<div class="empty"><h3>No hires yet</h3><p class="muted">Find the right truck for your next job.</p><a class="btn" href="trucks.html">Find a truck</a></div>`;
+    }
+    if (tab === 'trucks') {
+      h = listings.length ? listings.map(t => `<div class="req"><div class="req-top"><div class="thumb">${t.photo ? `<img src="${t.photo}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px" alt="">` : truckSVG(t.type)}</div><div style="flex:1;min-width:0"><b style="color:var(--navy)">${esc(t.title)}</b><div class="small muted">${esc(t.plate || '')} · ${t.licence} licence · ${esc(t.suburb)}</div></div><span class="pill ${t.paused ? 'p-grey' : ''}">${t.paused ? 'Paused' : esc(t.status || 'Live')}</span></div>
+          <div class="grid-2" style="align-items:end"><div class="field" style="margin:0"><label>Daily rate</label><div class="prefix"><span>$</span><input type="number" value="${t.dayRate}" data-rate="${t.id}" inputmode="numeric"></div></div>
+          <div class="req-actions"><a class="btn btn-ghost" href="truck.html?id=${t.id}">View</a><button class="btn btn-ghost" data-pause="${t.id}">${t.paused ? 'Resume' : 'Pause'}</button></div></div></div>`).join('')
+        : `<div class="empty"><h3>No trucks listed</h3><p class="muted">It's free to list. Takes about 10 minutes.</p><a class="btn" href="owner-register.html">List a truck</a></div>`;
+    }
+    if (tab === 'payouts') {
+      const paid = incoming.filter(b => b.status === 'confirmed' || b.status === 'completed');
+      h = paid.length ? `<div class="panel">${paid.map(b => `<div class="qline"><span>${b.ref} · ${esc(b.truckTitle)} · ${dfmt(b.from)}</span><span>${money(b.payout, 2)}</span></div>`).join('')}<div class="qline total"><span>Due after completed hires</span><span>${money(earned, 2)}</span></div></div><p class="small muted">Payouts are released after each hire is completed and the truck is checked back in.</p>`
+        : `<div class="empty"><h3>No payouts yet</h3><p class="muted">Accept a request and your payout shows here.</p></div>`;
+    }
+    $('#pane').innerHTML = h;
+    $('#verif').innerHTML = [
+      ['Email & mobile', !!u.email], ['Driver licence', !!u.verified], ['Owner details', (u.roles || []).includes('owner')], ['Payout account', (u.roles || []).includes('owner')]
+    ].map(([l, ok]) => `<li>${ok ? '<span class="tick">✓</span>' : '<span class="tick" style="background:var(--line-2)">·</span>'}${l}<span class="st ${ok ? 'ok' : ''}">${ok ? 'Done' : 'To do'}</span></li>`).join('');
+  }
+  $('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { tab = b.dataset.t; draw(); } });
+  $('#pane').addEventListener('click', e => {
+    const a = e.target.closest('[data-act]');
+    if (a) { const bs = Store.get('bookings', []); const b = bs.find(x => x.ref === a.dataset.ref); if (b) { b.status = a.dataset.act === 'accept' ? 'confirmed' : 'declined'; Store.set('bookings', bs); toast(a.dataset.act === 'accept' ? 'Accepted — the hirer has been notified' : 'Declined'); draw(); } }
+    const p = e.target.closest('[data-pause]');
+    if (p) { const ls = Store.get('listings', []); const t = ls.find(x => x.id === p.dataset.pause); t.paused = !t.paused; Store.set('listings', ls); draw(); }
+  });
+  $('#pane').addEventListener('change', e => { const r = e.target.dataset.rate; if (r) { const ls = Store.get('listings', []); ls.find(x => x.id === r).dayRate = +e.target.value; Store.set('listings', ls); toast('Rate updated'); } });
+  $('#reset').onclick = () => { if (confirm('Clear all prototype data in this browser?')) { ['listings', 'bookings', 'user', 'ownerDraft'].forEach(k => { try { localStorage.removeItem('th:' + k); } catch (e) {} }); location.reload(); } };
+  draw();
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script><script src="assets/js/quote.js"></script>
+</body></html>

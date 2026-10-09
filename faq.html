@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Help &amp; FAQ | TruckHire.com.au</title><meta name="description" content="Answers about hiring a truck, licences, pricing, cover, bonds and listing your truck on TruckHire.com.au.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="Help &amp; FAQ | TruckHire.com.au"><meta property="og:description" content="Answers about hiring a truck, licences, pricing, cover, bonds and listing your truck on TruckHire.com.au."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><span class="eyebrow">Help centre</span><h1>Questions &amp; answers</h1>
+  <div class="field" style="max-width:520px;margin:14px 0 0"><label class="sr" for="fq">Search help</label><input type="search" id="fq" placeholder="Search e.g. bond, licence, fuel"></div></div></section>
+<section class="section" style="padding-top:20px"><div class="faq" id="faq"></div>
+<p class="center muted" id="noRes" hidden>No answers match. <a href="contact.html">Ask us directly</a>.</p></section>
+<script>
+const FAQ = {
+  'Hiring a truck': [
+    ['Can I drive a truck on my car licence?', 'Yes, up to 4.5 tonnes GVM. That covers utes, vans and many 20–30 m³ moving trucks. Heavier trucks need LR (up to 8 t), MR (over 8 t, 2 axles) or HR (3+ axles). Every listing shows the licence it needs. See the <a href="licence-guide.html">licence guide</a>.'],
+    ['What do I need to hire?', 'A current Australian licence of the right class, photo ID, and a card for the hire and bond. You verify once with licence photos and a selfie.'],
+    ['How old do I need to be?', 'Proposed minimums: 21 for car-licence and LR trucks, 25 for MR and HR trucks. Some owners may set stricter rules.'],
+    ['Can I add another driver?', 'Yes. Additional drivers are added at booking and must verify their own licence before they drive.'],
+    ['Can P-platers hire?', 'Provisional licence holders can hire car-licence trucks. LR and above require a full licence (proposed).'],
+    ['Do I need a work diary?', 'Only for trucks over 12 t GVM on trips more than 100 km from base, in states under the Heavy Vehicle National Law. We flag this at booking. See <a href="https://www.nhvr.gov.au" target="_blank" rel="noopener">NHVR</a>.']
+  ],
+  'Pricing & payment': [
+    ['What\'s included in the price?', 'The daily rate, a daily kilometre allowance and basic cover. You\'ll see the full total, including any extra kilometres, cover upgrade, extras and the service fee, before you pay.'],
+    ['How does the bond work?', 'The bond is a hold on your card at pick-up, not a charge. It\'s released after the truck is returned clean, fuelled and undamaged.'],
+    ['Who pays for fuel and tolls?', 'You do. Return the truck at the same fuel level. Tolls and fines during your hire are your responsibility.'],
+    ['What\'s the cancellation policy?', 'Proposed: free cancellation up to 48 hours before pick-up, 50% refund within 48 hours, no refund after pick-up time.']
+  ],
+  'Cover & damage': [
+    ['What happens if I damage the truck?', 'Report it in the app straight away. Costs come from the bond first, then your cover applies, up to the excess for the level you chose.'],
+    ['What isn\'t covered?', 'Damage from breaching the terms, such as overloading, unlicensed or impaired driving, or hitting overhead structures by ignoring height clearances. Also tyres and windscreen unless you choose Premium (proposed).'],
+    ['What if it breaks down?', 'Report it in the app and contact the owner. Mechanical failure that isn\'t your fault is the owner\'s responsibility, and unused days are refunded.']
+  ],
+  'Listing your truck': [
+    ['What does it cost to list?', 'Nothing. A commission comes out of completed hires only, and you see your exact payout before you accept.'],
+    ['What do I need to register?', 'ABN (if a business), rego details and certificate, VIN, compliance plate specs (GVM, axles, payload), an insurance certificate of currency that permits hire, four photos and bank details for payouts.'],
+    ['Does my insurance cover hiring out?', 'Many standard policies don\'t. Check with your insurer that hire to third parties is covered. Owner cover through TruckHire is being finalised.'],
+    ['Can I choose who hires my truck?', 'Yes. Accept or decline every request, or turn on instant book for verified drivers with the right licence.'],
+    ['How do I get paid?', 'To your nominated account after each completed hire, with a statement for your records.'],
+    ['Can I list a financed truck?', 'Only if your finance or lease agreement allows the vehicle to be hired out. You confirm this at registration.']
+  ]
+};
+document.addEventListener('DOMContentLoaded', () => {
+  $('#faq').innerHTML = Object.entries(FAQ).map(([cat, qs]) => `<div class="faq-group"><h2 class="faq-cat">${cat}</h2>${qs.map(([q, a]) => `<div class="faq-item"><button class="faq-q" aria-expanded="false">${q}</button><div class="faq-a">${a}</div></div>`).join('')}</div>`).join('');
+  $('#fq').addEventListener('input', e => {
+    const v = e.target.value.toLowerCase().trim(); let any = false;
+    $$('.faq-item').forEach(it => { const hit = !v || it.textContent.toLowerCase().includes(v); it.hidden = !hit; it.classList.toggle('open', !!v && hit); any = any || hit; });
+    $$('.faq-group').forEach(g => g.hidden = !$$('.faq-item', g).some(i => !i.hidden));
+    $('#noRes').hidden = any;
+  });
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script>
+</body></html>

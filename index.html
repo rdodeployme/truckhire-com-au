@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TruckHire.com.au — Hire a ute, van or truck from local owners</title><meta name="description" content="Hire utes, vans, pantechs, tippers and trucks from local owners — licence-checked, protected and priced upfront. Or list your truck and earn when it would otherwise sit idle.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="TruckHire.com.au — Hire a ute, van or truck from local owners"><meta property="og:description" content="Hire utes, vans, pantechs, tippers and trucks from local owners — licence-checked, protected and priced upfront. Or list your truck and earn when it would otherwise sit idle."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="home">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" style="color:#7FA6FF">Truck hire marketplace</span>
+      <h1>The right truck.<br><em>Right where you are.</em></h1>
+      <p class="lede">Hire utes, vans, pantechs, tippers and trucks from local owners — licence-checked, protected and priced upfront. Or put your idle truck to work.</p>
+      <ul class="hero-badges"><li>Licence matched to every truck</li><li>Price shown before you book</li><li>Verified owners &amp; vehicles</li></ul>
+    </div>
+    <div class="search-card" id="search">
+      <div class="search-tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="hire">I need a truck</button>
+        <button role="tab" aria-selected="false" data-tab="list">I own a truck</button>
+      </div>
+      <form class="sf" data-pane="hire" action="trucks.html">
+        <div class="field"><label for="s-where">Pick-up area</label>
+          <select id="s-where" name="city"><option value="">Anywhere</option><option>Melbourne</option><option>Brisbane</option></select></div>
+        <div class="field"><label for="s-type">Truck type</label>
+          <select id="s-type" name="type"><option value="">Any truck</option></select></div>
+        <div class="field"><label for="s-from">Pick up</label><input type="date" id="s-from" name="from"></div>
+        <div class="field"><label for="s-lic">Your licence</label>
+          <select id="s-lic" name="licence"><option value="">Show all</option></select></div>
+        <button class="btn btn-lg" type="submit">Find trucks</button>
+      </form>
+      <form class="sf" data-pane="list" hidden action="list-your-truck.html#earn">
+        <div class="field"><label for="l-type">What do you own?</label><select id="l-type" name="type"></select></div>
+        <div class="field"><label for="l-days">Days it sits idle each week</label><select id="l-days" name="days"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <button class="btn btn-lg" type="submit">See what you could earn</button>
+      </form>
+    </div>
+  </div>
+  <div class="hero-road" aria-hidden="true"><div class="hero-truck" id="heroTruck"></div></div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Browse by type</span>
+    <h2>Whatever the job,<br>there's a truck for it.</h2>
+    <div class="cat-grid reveal" id="cats" style="margin-top:22px"></div>
+  </div>
+</section>
+
+<section class="section section-navy" id="drive">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow" style="color:#7FA6FF">What can I drive?</span>
+      <h2>Tap your licence. See your trucks.</h2>
+      <p class="lede" style="color:#B9C9F0">Most people don't know a normal car licence covers trucks up to 4.5 tonnes GVM — including 20–30 m³ moving trucks. We match every listing to the licence it needs, so you never book something you can't legally drive.</p>
+      <a class="link-arrow" href="licence-guide.html" style="color:#9DBBFF">Read the licence guide</a>
+    </div>
+    <div class="matcher reveal">
+      <b style="color:var(--navy)">My licence class is…</b>
+      <div class="lic-pills" id="licPills"></div>
+      <div class="matcher-out" id="licOut"></div>
+      <a class="btn btn-block" id="licGo" href="trucks.html?licence=C" style="margin-top:14px">Show trucks I can drive</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-sky" id="fit">
+  <div class="wrap">
+    <span class="eyebrow">Truck size finder</span>
+    <h2>Not sure what size?<br>Tell us what's going in.</h2>
+    <div class="loadfit" style="margin-top:20px">
+      <div>
+        <div class="load-opts" id="loadOpts"></div>
+        <p class="small muted" style="margin-top:14px">Estimates only — volumes and weights vary. Always load within the truck's legal payload.</p>
+      </div>
+      <div class="fit-result" id="fitOut" aria-live="polite"><b style="color:var(--navy)">Pick what you're moving</b><p class="muted small" style="margin:6px 0 0">We'll suggest a truck size and show matching trucks.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:28px"><span class="eyebrow">How it works</span><h2>Two sides. One simple marketplace.</h2></div>
+    <div class="lanes">
+      <div class="lane reveal">
+        <span class="lane-tag">Hiring a truck</span>
+        <h3>Book a truck in minutes</h3>
+        <ol class="steps-n">
+          <li><div><b>Find the right truck</b><span>Filter by type, size, location and the licence you hold.</span></div></li>
+          <li><div><b>See the full price</b><span>Daily rate, kilometres, cover and fees — totalled before you book.</span></div></li>
+          <li><div><b>Get verified once</b><span>Licence, ID and a quick selfie check. Then you're cleared to book any truck you're licensed for.</span></div></li>
+          <li><div><b>Pick up and go</b><span>Do the walk-around with the owner, take photos, drive, return.</span></div></li>
+        </ol>
+        <a class="btn" href="trucks.html">Find a truck</a>
+      </div>
+      <div class="lane lane-blue reveal">
+        <span class="lane-tag">Owning a truck</span>
+        <h3>Earn from idle days</h3>
+        <ol class="steps-n">
+          <li><div><b>List it free</b><span>Rego, specs, photos and your rates. We work out the licence class from the GVM.</span></div></li>
+          <li><div><b>We check everything</b><span>ABN, registration, insurance and roadworthiness are verified before you go live.</span></div></li>
+          <li><div><b>You approve every hire</b><span>See the driver's verified licence before accepting — or turn on instant book.</span></div></li>
+          <li><div><b>Get paid</b><span>Payouts to your nominated account after each completed hire.</span></div></li>
+        </ol>
+        <a class="btn btn-white" href="list-your-truck.html">List your truck</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-sky">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px">
+      <div><span class="eyebrow">Available now</span><h2 style="margin:0">Trucks near you</h2></div>
+      <a class="link-arrow" href="trucks.html">See all trucks</a>
+    </div>
+    <div class="sample-flag" style="margin-bottom:16px"><span>ℹ️</span><span><b>Prototype preview.</b> Listings shown are samples to demonstrate the experience.</span></div>
+    <div class="truck-grid" id="featured"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:28px"><span class="eyebrow">Trust built in</span><h2>Every hire checked<br>on both sides.</h2></div>
+    <div class="feature-grid">
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/></svg></div><h3>Licence-checked drivers</h3><p>Every hirer's licence class, expiry and ID are checked. The booking won't go through unless their licence covers that truck.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Verified trucks &amp; owners</h3><p>ABN, registration, insurance and roadworthiness checked before a truck goes live.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .9 3 2.2-1.4 2-3 2c-1.5 0-2.6-.6-3-1.6"/></svg></div><h3>Upfront pricing</h3><p>Daily rate, included kilometres, cover and fees are all shown before you pay. No surprises at drop-off.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><h3>Secure payments &amp; bond</h3><p>Payment and bond handled through the platform. The bond is a hold, released after a clean return.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><h3>Photo check-in &amp; out</h3><p>Both sides photograph the truck at pick-up and return, time-stamped in the app. Disputes settled on evidence.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v5M12 16h.01"/></svg></div><h3>Choose your cover</h3><p>Pick the damage cover level that suits the job and lower your excess.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-blue">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow" style="color:#CFDDFF">For truck owners</span>
+      <h2>Your truck earns nothing parked.</h2>
+      <p class="lede" style="color:#DCE6FF">Tradies, transport operators and businesses with a truck that sits a few days a week — list it, set your rates and approve who drives it.</p>
+      <a class="btn btn-white btn-lg" href="list-your-truck.html">See what you could earn</a>
+    </div>
+    <div class="stat-band" style="margin-top:20px">
+      <div class="stat"><b>$0</b><span>to list your truck</span></div>
+      <div class="stat"><b>100%</b><span>your call on every booking</span></div>
+      <div class="stat"><b>8</b><span>truck types supported</span></div>
+      <div class="stat"><b>1 form</b><span>to register &amp; get verified</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:10px"><span class="eyebrow">Quick answers</span><h2>Questions people ask</h2></div>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I drive a truck on my car licence?</button><div class="faq-a">Yes — a standard car (C) licence covers vehicles up to 4.5 tonnes GVM, which includes utes, vans and many 20–30 m³ moving trucks. Anything heavier needs an LR, MR or HR licence. Every listing shows the licence it needs.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What do I need to hire?</button><div class="faq-a">A current Australian driver licence of the right class, photo ID, and a payment card for the hire and bond. You verify once, then book any truck your licence covers.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What does it cost to list my truck?</button><div class="faq-a">Listing is free. A commission is deducted from each completed hire, shown clearly before you accept any booking.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What if the truck is damaged?</button><div class="faq-a">The hirer's chosen cover level sets their excess. Check-in and check-out photos are used to resolve any claim. See <a href="protection.html">Protection</a> for details.</div></div>
+    </div>
+    <p class="center" style="margin-top:20px"><a class="link-arrow" href="faq.html">All questions</a></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap"><div class="cta-band"><span id="ctaTruck"></span>
+    <h2>Got a job on?<br>Get the truck.</h2>
+    <div class="btns"><a class="btn btn-white btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-outline-w btn-lg" href="list-your-truck.html">List your truck</a></div>
+  </div></div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  $('#heroTruck').innerHTML = truckSVG('box', { title: 'Truck' });
+  $('#ctaTruck').innerHTML = truckSVG('curtain', { body: '#FFFFFF', cab: '#071A3D' });
+  // search tabs
+  $$('.search-tabs button').forEach(b => b.addEventListener('click', () => {
+    $$('.search-tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+    $$('#search [data-pane]').forEach(p => p.hidden = p.dataset.pane !== b.dataset.tab);
+  }));
+  const typeOpts = TH_TYPES.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+  $('#s-type').insertAdjacentHTML('beforeend', typeOpts); $('#l-type').innerHTML = typeOpts;
+  $('#s-lic').insertAdjacentHTML('beforeend', TH_LICENCES.slice(0, 4).map(l => `<option value="${l.code}">${l.name}</option>`).join(''));
+  const d = new Date(); d.setDate(d.getDate() + 1); $('#s-from').value = d.toISOString().slice(0, 10); $('#s-from').min = new Date().toISOString().slice(0, 10);
+
+  // categories
+  $('#cats').innerHTML = TH_TYPES.map(t => `<a class="cat" href="trucks.html?type=${t.id}">${truckSVG(t.id)}<b>${t.name}</b><small>${t.blurb}</small></a>`).join('');
+
+  // licence matcher
+  const trucks = allTrucks();
+  const lics = TH_LICENCES.slice(0, 6);
+  $('#licPills').innerHTML = lics.map((l, i) => `<button type="button" data-l="${l.code}" aria-pressed="${i === 0}">${l.code}<small>${l.code === 'C' ? 'Car' : l.name.split(' (')[0]}</small></button>`).join('');
+  function showLic(code) {
+    $$('#licPills button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === code));
+    $('#licOut').innerHTML = TH_TYPES.map(t => {
+      const ok = trucks.some(x => x.type === t.id && canDrive(code, x.licence));
+      return `<div class="mo ${ok ? '' : 'no'}"><i>${ok ? '✓' : '✕'}</i>${t.short}</div>`;
+    }).join('');
+    const n = trucks.filter(x => canDrive(code, x.licence)).length;
+    $('#licGo').href = 'trucks.html?licence=' + code;
+    $('#licGo').textContent = `Show ${n} trucks I can drive`;
+  }
+  $('#licPills').addEventListener('click', e => { const b = e.target.closest('button'); if (b) showLic(b.dataset.l); });
+  showLic('C');
+
+  // load fit
+  $('#loadOpts').innerHTML = TH_LOADS.map(l => `<button type="button" data-id="${l.id}" aria-pressed="false">${l.name}</button>`).join('');
+  $('#loadOpts').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('#loadOpts button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const L = TH_LOADS.find(x => x.id === b.dataset.id);
+    const fits = trucks.filter(t => L.type.includes(t.type) && t.payload >= L.kg * 0.9 && (L.m3 === 0 || t.m3 === 0 || t.m3 >= L.m3 * 0.9))
+                       .sort((a, z) => a.dayRate - z.dayRate);
+    const best = fits[0];
+    if (!best) { $('#fitOut').innerHTML = `<b>No exact match listed yet</b><p class="small muted">Try browsing all trucks.</p><a class="btn btn-sm" href="trucks.html">Browse trucks</a>`; return; }
+    const pctV = L.m3 && best.m3 ? Math.min(100, Math.round(L.m3 / best.m3 * 100)) : null;
+    const pctW = Math.min(100, Math.round(L.kg / best.payload * 100));
+    $('#fitOut').innerHTML = `
+      <span class="pill p-blue">Suggested</span>
+      <h3 style="margin:10px 0 2px">${TH_TYPE[best.type].short}${best.m3 ? ' · ' + best.m3 + ' m³' : ''}</h3>
+      <p class="small muted" style="margin:0">About ${L.m3 ? L.m3 + ' m³ and ' : ''}${(L.kg / 1000).toFixed(1)} t of load · needs ${best.licence === 'C' ? 'a car licence' : 'an ' + best.licence + ' licence'}</p>
+      ${pctV !== null ? `<div class="fit-meter"><span style="width:${pctV}%"></span></div><div class="small muted">Space used ~${pctV}%</div>` : ''}
+      <div class="fit-meter"><span style="width:${pctW}%;background:var(--navy)"></span></div><div class="small muted">Payload used ~${pctW}%</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><a class="btn btn-sm" href="truck.html?id=${best.id}">From ${money(best.dayRate)}/day</a><a class="btn btn-ghost btn-sm" href="trucks.html?type=${best.type}">${fits.length} matching trucks</a></div>`;
+  });
+
+  // featured
+  $('#featured').innerHTML = trucks.filter(t => ['th-1003','th-1004','th-1009','th-1006','th-1011','th-1005'].includes(t.id)).map(t => truckCard(t)).join('');
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script>
+</body></html>

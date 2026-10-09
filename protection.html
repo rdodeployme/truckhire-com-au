@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Protection, trust &amp; safety | TruckHire.com.au</title><meta name="description" content="How TruckHire protects hirers and owners: licence checks, verified trucks, damage cover options, bonds and photo check-in.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="Protection, trust &amp; safety | TruckHire.com.au"><meta property="og:description" content="How TruckHire protects hirers and owners: licence checks, verified trucks, damage cover options, bonds and photo check-in."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><span class="eyebrow">Trust &amp; safety</span><h1>Protection on every hire</h1><p class="lede" style="margin:0">Checks before the booking, evidence during it and a clear process if something goes wrong.</p></div></section>
+
+<section class="section" style="padding-top:40px">
+  <div class="wrap">
+    <h2>For hirers</h2>
+    <p class="lede">Choose the cover level that suits the job. The excess is the most you'd pay towards damage you're responsible for.</p>
+    <div class="cover-grid" id="covers" style="margin:18px 0 10px"></div>
+    <p class="small muted">Cover tiers and prices are proposed and subject to confirmation with an insurance partner. Excess doesn't apply to damage from breaching the hire terms (e.g. overloading, unlicensed or impaired driving, or overhead damage from ignoring height clearances).</p>
+  </div>
+</section>
+
+<section class="section section-sky" id="owners">
+  <div class="wrap">
+    <h2>For owners</h2>
+    <div class="feature-grid" style="margin-top:18px">
+      <div class="feature"><h3>Only licensed drivers</h3><p>Licence class, expiry and identity are verified, and the class is checked against your truck's GVM before a request can reach you.</p></div>
+      <div class="feature"><h3>Bond you set</h3><p>Held on the hirer's card at pick-up, released after a clean return. Used first for fuel, cleaning or minor damage.</p></div>
+      <div class="feature"><h3>Time-stamped photos</h3><p>Walk-around photos at pick-up and return, stored against the booking, so damage claims rest on evidence.</p></div>
+      <div class="feature"><h3>Fines &amp; tolls transferred</h3><p>The booking record names the driver and the hire period, so infringements can be nominated to the hirer.</p></div>
+      <div class="feature"><h3>You approve requests</h3><p>Decline any booking. Instant book is optional and only for drivers who meet your rules.</p></div>
+      <div class="feature"><h3>Insurance</h3><p>Your truck needs insurance that permits it to be hired out. Owner cover through TruckHire is being finalised.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>If something goes wrong</h2>
+    <ol class="steps-n" style="max-width:720px">
+      <li><div><b>Report it in the app</b><span>Breakdown, accident or damage. Report it straight away with photos.</span></div></li>
+      <li><div><b>We compare the photos</b><span>Pick-up and return photos are compared to confirm what's new.</span></div></li>
+      <li><div><b>Bond, then cover</b><span>Minor costs come from the bond. Larger damage goes through the hirer's cover, up to their excess.</span></div></li>
+      <li><div><b>Owner is paid</b><span>The owner is reimbursed through the claim and keeps their hire payout.</span></div></li>
+    </ol>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  $('#covers').innerHTML = TH_CONFIG.cover.map(c => `<div class="panel" style="margin:0"><span class="pill ${c.id === 'standard' ? 'p-blue' : ''}">${c.name}</span><div style="font:800 2.6rem/1 var(--f-d);color:var(--navy);margin:12px 0 4px">${money(c.excess)}</div><div class="small muted">excess</div><div style="margin-top:10px;font-weight:800;color:var(--blue)">${c.perDay ? '+' + money(c.perDay) + ' per day' : 'Included'}</div><div class="small muted">${c.note}</div></div>`).join('');
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script>
+</body></html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Book your truck | TruckHire.com.au</title><meta name="description" content="Confirm your dates, verify your licence, choose cover and book.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="Book your truck | TruckHire.com.au"><meta property="og:description" content="Confirm your dates, verify your licence, choose cover and book."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><span class="eyebrow">Checkout</span><h1 id="bkTitle">Book your truck</h1></div></section>
+<div class="wrap" style="padding-top:20px;padding-bottom:40px">
+<div class="flow-wrap">
+<form class="flow" id="flow" novalidate>
+  <div class="stepper-head"><div class="stepper-count"></div><div class="stepper-progress"><span></span></div><ol class="stepper-bar"></ol></div>
+
+  <!-- 1 TRIP -->
+  <section class="step" data-label="Trip">
+    <h2>Your trip</h2>
+    <div class="grid-2">
+      <div class="field"><label for="tFrom">Pick-up date</label><input type="date" id="tFrom" required></div>
+      <div class="field"><label for="tFromT">Pick-up time</label><select id="tFromT" required></select></div>
+      <div class="field"><label for="tTo">Return date</label><input type="date" id="tTo" required></div>
+      <div class="field"><label for="tToT">Return time</label><select id="tToT" required></select></div>
+    </div>
+    <div class="field"><label for="tKm">Estimated total kilometres</label><div class="suffix"><input type="number" id="tKm" min="0" step="10" inputmode="numeric" required><span>km</span></div><small class="hint" id="kmHint"></small></div>
+    <div class="field"><span class="lbl">What's the job?</span>
+      <div class="choice-grid" id="purpose">
+        <label class="choice"><input type="radio" name="purpose" value="Moving house" required><span><span class="ico">🏠</span>Moving house</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="Business / deliveries"><span><span class="ico">📦</span>Business</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="Building / landscaping"><span><span class="ico">🧱</span>Building</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="Rubbish / clean-up"><span><span class="ico">🧹</span>Clean-up</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="Event"><span><span class="ico">🎪</span>Event</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="Other"><span><span class="ico">✳️</span>Other</span></label>
+      </div></div>
+    <div class="field"><label for="tNote">Message to the owner <span class="muted">(optional)</span></label><textarea id="tNote" placeholder="e.g. Moving a 2-bed unit from Richmond to Preston, picking up at 7am."></textarea></div>
+    <div class="step-actions"><a class="btn btn-ghost" id="backToTruck" href="trucks.html">Back</a><button class="btn btn-lg" data-next>Continue</button></div>
+  </section>
+
+  <!-- 2 DRIVER -->
+  <section class="step" data-label="Driver" data-validate="checkDriver">
+    <h2>Main driver</h2>
+    <div class="notice"><span class="notice-ico">i</span><div><b>Verify once, book any time.</b>Your licence is checked against this truck's requirement before the booking can go through.</div></div>
+    <div class="grid-2">
+      <div class="field"><label for="dFirst">First name (as on licence)</label><input type="text" id="dFirst" autocomplete="given-name" required></div>
+      <div class="field"><label for="dLast">Last name</label><input type="text" id="dLast" autocomplete="family-name" required></div>
+      <div class="field"><label for="dEmail">Email</label><input type="email" id="dEmail" autocomplete="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" data-msg="Enter a valid email"></div>
+      <div class="field"><label for="dMobile">Mobile</label><input type="tel" id="dMobile" autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx" required pattern="(\+?61|0)4\d{2}\s?\d{3}\s?\d{3}" data-msg="Enter an Australian mobile"></div>
+      <div class="field"><label for="dDob">Date of birth</label><input type="date" id="dDob" autocomplete="bday" required></div>
+      <div class="field"><label for="dState">Licence issued in</label><select id="dState" required><option value="">Select state</option><option>VIC</option><option>NSW</option><option>QLD</option><option>SA</option><option>WA</option><option>TAS</option><option>ACT</option><option>NT</option></select></div>
+      <div class="field"><label for="dLicNo">Licence number</label><input type="text" id="dLicNo" required autocomplete="off" pattern="[A-Za-z0-9]{4,10}" data-msg="4–10 letters or numbers"></div>
+      <div class="field"><label for="dCardNo">Card number <span class="muted">(on your licence card)</span></label><input type="text" id="dCardNo" autocomplete="off" pattern="[A-Za-z0-9]{6,10}" data-msg="6–10 letters or numbers"><small class="hint">Required in most states for document verification</small></div>
+      <div class="field"><label for="dClass">Licence class</label><select id="dClass" required></select></div>
+      <div class="field"><label for="dType">Licence type</label><select id="dType" required><option value="Full">Full / open</option><option value="P2">Provisional (P2 / green)</option><option value="P1">Provisional (P1 / red)</option><option value="L">Learner</option></select></div>
+      <div class="field"><label for="dExp">Expiry date</label><input type="date" id="dExp" required></div>
+      <div class="field"><label for="dHeld">Year you got this class</label><input type="number" id="dHeld" inputmode="numeric" min="1960" required></div>
+    </div>
+    <div id="licCheck"></div>
+    <h3 style="margin-top:8px">Photos for verification</h3>
+    <div class="grid-3">
+      <div class="field"><div class="upload"><input type="file" accept="image/*" capture="environment" id="upFront" required data-msg="Add a photo"><div class="up-ico">🪪</div><b>Licence front</b><small>Tap to snap</small><div class="upload-prev"></div></div></div>
+      <div class="field"><div class="upload"><input type="file" accept="image/*" capture="environment" id="upBack" required data-msg="Add a photo"><div class="up-ico">🔄</div><b>Licence back</b><small>Tap to snap</small><div class="upload-prev"></div></div></div>
+      <div class="field"><div class="upload"><input type="file" accept="image/*" capture="user" id="upSelfie" required data-msg="Add a selfie"><div class="up-ico">🤳</div><b>Selfie</b><small>Matched to your licence</small><div class="upload-prev"></div></div></div>
+    </div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Verify my licence</button></div>
+  </section>
+
+  <!-- 3 VERIFY -->
+  <section class="step" data-label="Checks" data-validate="checkVerified">
+    <h2>Running your checks</h2>
+    <ul class="vlist" id="vlist"></ul>
+    <p class="small muted" style="margin-top:14px">Prototype: these checks are simulated. In production, ID and licence are verified with an identity-verification provider through the government Document Verification Service (DVS).</p>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Edit details</button><button class="btn btn-lg" data-next id="vNext" disabled>Continue</button></div>
+  </section>
+
+  <!-- 4 COVER -->
+  <section class="step" data-label="Cover" data-validate="checkDecl">
+    <h2>Cover &amp; extras</h2>
+    <div class="cover-grid" id="coverGrid"></div>
+    <h3 style="margin-top:22px">Extras</h3>
+    <div id="extrasList"></div>
+    <div id="wdNotice"></div>
+    <h3 style="margin-top:22px">Driver declarations</h3>
+    <div class="field" id="declWrap">
+      <label class="check"><input type="checkbox" class="decl" required><span><b>Only listed, verified drivers will drive</b><small>Additional drivers must be added and verified.</small></span></label>
+      <label class="check"><input type="checkbox" class="decl" required><span><b>I'll load within the legal payload and restrain the load</b><small id="payloadDecl"></small></span></label>
+      <label class="check"><input type="checkbox" class="decl" required><span><b>No driving under the influence, and I'll follow road rules</b><small>Tolls, fines and infringements during the hire are the hirer's responsibility.</small></span></label>
+      <label class="check"><input type="checkbox" class="decl" required><span><b>No serious licence suspensions or at-fault claims in the last 3 years</b><small>Tell us before booking if this isn't true.</small></span></label>
+    </div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue to payment</button></div>
+  </section>
+
+  <!-- 5 PAY -->
+  <section class="step" data-label="Pay">
+    <h2>Payment</h2>
+    <div class="notice"><span class="notice-ico">i</span><div><b>Prototype — no real payment is taken.</b>Use test card 4242 4242 4242 4242. Don't enter a real card.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+      <button type="button" class="btn btn-lg" style="--bg:#000" id="applePay"> Pay</button>
+      <button type="button" class="btn btn-lg btn-ghost" id="googlePay">G Pay</button>
+    </div>
+    <p class="center small muted">or pay by card</p>
+    <div class="field"><label for="cName">Name on card</label><input type="text" id="cName" autocomplete="cc-name" required></div>
+    <div class="field"><label for="cNum">Card number</label><input type="text" id="cNum" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" required data-check="checkCard"></div>
+    <div class="grid-2">
+      <div class="field"><label for="cExp">Expiry</label><input type="text" id="cExp" inputmode="numeric" placeholder="MM / YY" autocomplete="cc-exp" required pattern="(0[1-9]|1[0-2])\s?/\s?\d{2}" data-msg="MM / YY"></div>
+      <div class="field"><label for="cCvc">CVC</label><input type="text" id="cCvc" inputmode="numeric" autocomplete="cc-csc" required pattern="\d{3,4}" data-msg="3 or 4 digits"></div>
+    </div>
+    <div class="panel panel-sky small" id="payNote"></div>
+    <div class="field"><label class="check"><input type="checkbox" required><span><b>I agree to the <a href="terms.html" target="_blank">hire terms</a> and cancellation policy</b><small>Free cancellation up to 48 hours before pick-up (proposed).</small></span></label></div>
+    <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next id="payBtn">Pay</button></div>
+  </section>
+
+  <!-- 6 DONE -->
+  <section class="step" data-label="Done">
+    <div class="success" id="done"></div>
+  </section>
+</form>
+
+<aside class="flow-side"><div class="book-box always" id="sum"></div></aside>
+</div>
+</div>
+
+<script>
+let T, ST, VERIFIED = false;
+function checkDriver() {
+  const cls = $('#dClass').value, need = T.licence;
+  const dob = new Date($('#dDob').value), now = new Date();
+  const age = (now - dob) / 31557600000;
+  const minAge = TH_CONFIG.minAge[need] || 21;
+  if (!canDrive(cls, need)) return `This truck needs ${licName(need)}. Your ${cls} licence doesn't cover it.`;
+  if ($('#dType').value === 'L') return 'Learner drivers can\'t hire. A full or provisional licence is required.';
+  if (need !== 'C' && $('#dType').value !== 'Full') return `A full (open) licence is required for ${need} trucks.`;
+  if (age < minAge) return `Drivers must be at least ${minAge} for ${need} trucks.`;
+  if ($('#dExp').value < ST.to) return 'Your licence expires before the return date.';
+  const yrs = now.getFullYear() - +$('#dHeld').value;
+  if (yrs < (TH_CONFIG.minYearsHeld[need] || 1)) return `You need to have held this class for at least ${TH_CONFIG.minYearsHeld[need]} year(s).`;
+  return '';
+}
+function checkVerified() { return VERIFIED ? '' : 'Checks still running'; }
+function checkDecl() { return ''; }
+function checkCard(f) {
+  const d = f.value.replace(/\D/g, '');
+  if (d.length < 13) return 'Enter a card number';
+  let s = 0; d.split('').reverse().forEach((c, i) => { let n = +c; if (i % 2) { n *= 2; if (n > 9) n -= 9; } s += n; });
+  return s % 10 ? 'That card number isn\'t valid' : '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  T = findTruck(qs('id')) || TH_TRUCKS_SAMPLE[2];
+  const u = user() || {};
+  ST = { from: qs('from'), to: qs('to'), km: +(qs('km') || T.kmDay), cover: qs('cover') || 'standard', extras: (qs('extras') || '').split(',').filter(Boolean) };
+  if (!ST.from) { const d = new Date(); d.setDate(d.getDate() + 1); ST.from = ST.to = iso(d); }
+  $('#bkTitle').textContent = (T.instant ? 'Book: ' : 'Request: ') + T.title;
+  $('#backToTruck').href = 'truck.html?id=' + T.id;
+  wireUploads();
+
+  // times
+  const times = []; for (let h = 6; h <= 19; h++) for (const m of ['00', '30']) times.push(`${String(h).padStart(2, '0')}:${m}`);
+  $('#tFromT').innerHTML = $('#tToT').innerHTML = times.map(t => `<option>${t}</option>`).join('');
+  $('#tFromT').value = '08:00'; $('#tToT').value = '17:00';
+  $('#tFrom').value = ST.from; $('#tTo').value = ST.to; $('#tKm').value = ST.km;
+  $('#tFrom').min = $('#tTo').min = iso(new Date());
+  $('#dClass').innerHTML = '<option value="">Select class</option>' + TH_LICENCES.map(l => `<option value="${l.code}">${l.name}</option>`).join('');
+  $('#payloadDecl').textContent = `This truck's payload is ${(T.payload / 1000).toFixed(1)} t.`;
+  // prefill from a verified profile
+  if (u.first) { $('#dFirst').value = u.first; $('#dLast').value = u.last || ''; $('#dEmail').value = u.email || ''; $('#dMobile').value = u.mobile || ''; }
+  if (u.licence) { $('#dClass').value = u.licence; }
+
+  // cover
+  $('#coverGrid').innerHTML = TH_CONFIG.cover.map(c => `<label class="choice cover-opt"><input type="radio" name="cover" value="${c.id}" ${c.id === ST.cover ? 'checked' : ''}><span>
+      <small style="grid-column:1/-1">${c.name}</small><b class="ex">${money(c.excess)}</b><b class="pr">${c.perDay ? '+' + money(c.perDay) + '/day' : 'Included'}</b><span class="tag">excess · ${c.note}</span></span></label>`).join('');
+  $('#extrasList').innerHTML = TH_CONFIG.extras.map(x => `<label class="check"><input type="checkbox" class="bx" value="${x.id}" ${ST.extras.includes(x.id) ? 'checked' : ''}><span><b>${x.name}</b><small>${money(x.price)} per ${x.per}</small></span></label>`).join('');
+  if (T.gvm > 12000) $('#wdNotice').innerHTML = `<div class="notice" style="margin-top:14px"><span class="notice-ico">!</span><div><b>Fatigue rules may apply.</b>This truck is over 12 t GVM. Under the Heavy Vehicle National Law, you may need a work diary for trips beyond 100 km from base. <a href="https://www.nhvr.gov.au" target="_blank" rel="noopener">Check NHVR rules</a>.</div></div>`;
+
+  function sum() {
+    ST.days = hireDays(ST.from, ST.to);
+    const q = calcQuote(T, ST);
+    $('#sum').innerHTML = `<div class="sum-truck"><div class="thumb">${truckSVG(T.type, { big: T.axles >= 3 })}</div><div><b>${esc(T.title)}</b><small>${esc(T.suburb)}, ${T.state} · ${T.licence === 'C' ? 'Car licence' : T.licence + ' licence'}</small></div></div>
+      <div class="qline"><span class="muted">Dates</span><span>${new Date(ST.from).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })} – ${new Date(ST.to).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })}</span></div>
+      ${quoteHTML(q)}`;
+    $('#kmHint').textContent = `${q.included} km included for ${q.days} day${q.days > 1 ? 's' : ''}, then ${money(T.extraKm, 2)}/km`;
+    $('#payBtn').textContent = `Pay ${money(q.total, 2)}`;
+    $('#payNote').innerHTML = `<b>${T.instant ? 'Charged now' : 'Charged only when the owner accepts'}:</b> ${money(q.total, 2)} incl. ${money(q.gst, 2)} GST.<br>A ${money(q.bond)} bond is held on your card at pick-up and released after a clean return.`;
+    return q;
+  }
+  const flow = $('#flow');
+  flow.addEventListener('change', e => {
+    if (e.target.id === 'tFrom') { ST.from = e.target.value; if (ST.to < ST.from) { ST.to = ST.from; $('#tTo').value = ST.to; } }
+    if (e.target.id === 'tTo') { ST.to = e.target.value < ST.from ? ST.from : e.target.value; e.target.value = ST.to; }
+    if (e.target.name === 'cover') ST.cover = e.target.value;
+    if (e.target.classList.contains('bx')) ST.extras = $$('.bx:checked').map(i => i.value);
+    if (['dClass', 'dDob', 'dType', 'dExp', 'dHeld'].includes(e.target.id)) liveLic();
+    sum();
+  });
+  $('#tKm').addEventListener('input', e => { ST.km = +e.target.value; sum(); });
+  function liveLic() {
+    if (!$('#dClass').value) { $('#licCheck').innerHTML = ''; return; }
+    const m = checkDriver();
+    $('#licCheck').innerHTML = m ? `<div class="notice notice-warn"><span class="notice-ico">!</span><div><b>Can't book this truck yet</b>${m}</div></div>`
+                                 : `<div class="notice"><span class="notice-ico">✓</span><div><b>Your licence covers this truck.</b>${licName($('#dClass').value)} — cleared for ${licName(T.licence)}.</div></div>`;
+  }
+  // card formatting
+  $('#cNum').addEventListener('input', e => e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 '));
+  $('#cExp').addEventListener('input', e => { const v = e.target.value.replace(/\D/g, '').slice(0, 4); e.target.value = v.length > 2 ? v.slice(0, 2) + ' / ' + v.slice(2) : v; });
+  const wallet = () => { $('#cName').value = $('#dFirst').value + ' ' + $('#dLast').value; $('#cNum').value = '4242 4242 4242 4242'; $('#cExp').value = '12 / 29'; $('#cCvc').value = '123'; toast('Wallet details added (prototype)'); };
+  $('#applePay').onclick = wallet; $('#googlePay').onclick = wallet;
+
+  function runChecks() {
+    VERIFIED = false; $('#vNext').disabled = true;
+    const items = ['Licence photo readable', 'Identity document check (DVS)', `Licence class covers ${T.licence}`, 'Licence current for hire dates', 'Selfie matches licence photo'];
+    $('#vlist').innerHTML = items.map((x, i) => `<li data-i="${i}"><span class="spinner"></span>${x}<span class="st">Checking</span></li>`).join('');
+    items.forEach((x, i) => setTimeout(() => {
+      const li = $(`#vlist li[data-i="${i}"]`); li.querySelector('.spinner').outerHTML = '<span class="tick">✓</span>';
+      const st = li.querySelector('.st'); st.textContent = 'Passed'; st.classList.add('ok');
+      if (i === items.length - 1) { VERIFIED = true; $('#vNext').disabled = false; toast('You\'re verified to drive'); }
+    }, 700 + i * 650));
+  }
+
+  Stepper(flow, {
+    onStep(i) { if (i === 2) runChecks(); if (i === 5) finish(); sum(); }
+  });
+  function finish() {{
+      const q = sum();
+      const ref = 'TH-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+      const booking = { ref, truckId: T.id, truckTitle: T.title, type: T.type, from: ST.from, to: ST.to, fromTime: $('#tFromT').value, toTime: $('#tToT').value, km: ST.km,
+        cover: ST.cover, extras: ST.extras, total: q.total, payout: q.ownerPayout, purpose: (flow.querySelector('[name=purpose]:checked') || {}).value,
+        driver: $('#dFirst').value + ' ' + $('#dLast').value, licence: $('#dClass').value, status: T.instant ? 'confirmed' : 'requested', created: Date.now(), note: $('#tNote').value, ownedByMe: !!T.mine };
+      Store.push('bookings', booking);
+      Store.set('user', Object.assign(user() || {}, { first: $('#dFirst').value, last: $('#dLast').value, email: $('#dEmail').value, mobile: $('#dMobile').value, licence: $('#dClass').value, verified: true, roles: Array.from(new Set([...(user()?.roles || []), 'hirer'])) }));
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TruckHire//EN', 'BEGIN:VEVENT', `UID:${ref}@truckhire.com.au`,
+        `DTSTART:${ST.from.replace(/-/g, '')}T${$('#tFromT').value.replace(':', '')}00`, `DTEND:${ST.to.replace(/-/g, '')}T${$('#tToT').value.replace(':', '')}00`,
+        `SUMMARY:Truck hire – ${T.title}`, `LOCATION:${T.suburb} ${T.state}`, `DESCRIPTION:Booking ${ref}`, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      const icsUrl = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      $('#done').innerHTML = `<div class="success-badge">✓</div>
+        <h2>${T.instant ? 'You\'re booked!' : 'Request sent!'}</h2>
+        <div class="ref">${ref}</div>
+        <p class="lede" style="margin:0 auto 20px">${T.instant ? `Your ${esc(T.title)} is confirmed for ${new Date(ST.from).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' })}.` : `The owner has 12 hours to accept (proposed). You won't be charged unless they do.`}</p>
+        <ul class="checklist" style="text-align:left;max-width:520px;margin:0 auto 22px">
+          <li><div><b>Pick-up details sent</b><span>Exact address and contact in your confirmation email and SMS.</span></div></li>
+          <li><div><b>Bring your licence</b><span>The owner checks it against your verified profile.</span></div></li>
+          <li><div><b>Photo walk-around</b><span>Both sides photograph the truck at pick-up and return.</span></div></li>
+        </ul>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn btn-lg" href="${icsUrl}" download="truckhire-${ref}.ics">Add to calendar</a><a class="btn btn-ghost btn-lg" href="dashboard.html">My bookings</a></div>`;
+      flow.querySelector('.stepper-head').hidden = true;
+      scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+  sum();
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script><script src="assets/js/quote.js"></script>
+</body></html>

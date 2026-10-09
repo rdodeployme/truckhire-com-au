@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Truck details | TruckHire.com.au</title><meta name="description" content="Truck specs, licence required, availability and full upfront pricing.">
+<meta name="theme-color" content="#071A3D">
+<meta property="og:title" content="Truck details | TruckHire.com.au"><meta property="og:description" content="Truck specs, licence required, availability and full upfront pricing."><meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head><body class="">
+<a class="sr" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap hdr">
+  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
+    <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
+  </nav>
+  <div class="hdr-actions"><span data-auth><a class="btn btn-ghost btn-sm hide-sm" href="signup.html?mode=login">Log in</a></span>
+    <a class="btn btn-sm hdr-signup" href="owner-register.html">List your truck</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span></button></div>
+</div></header>
+<main id="main">
+<div class="wrap">
+  <nav class="small" style="padding:16px 0 0"><a href="trucks.html">← All trucks</a></nav>
+  <div class="td" id="td"></div>
+</div>
+<div class="mobile-book" id="mBook"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const t = findTruck(qs('id')) || TH_TRUCKS_SAMPLE[2];
+  document.title = t.title + ' | TruckHire.com.au';
+  const lic = TH_LICENCES.find(l => l.code === t.licence);
+  const u = user();
+  const held = u && u.licence;
+  const blocked = blockedDays(t.id);
+  const st = { from: null, to: null, km: t.kmDay, cover: 'standard', extras: [] };
+
+  $('#td').innerHTML = `
+  <div>
+    <div class="td-hero">${t.photo ? `<img src="${t.photo}" alt="${esc(t.title)}">` : truckSVG(t.type, { big: t.axles >= 3, title: t.title })}</div>
+    ${t.photos && t.photos.length > 1 ? `<div style="display:flex;gap:8px;overflow:auto;margin-top:8px">${t.photos.map(p => `<img src="${p}" style="width:88px;height:66px;object-fit:cover;border-radius:10px" alt="">`).join('')}</div>` : ''}
+    <div style="margin-top:18px">
+      <span class="eyebrow">${TH_TYPE[t.type].short} · ${esc(t.suburb)}, ${t.state}</span>
+      <h1 style="font-size:clamp(2.2rem,8vw,3.6rem)">${esc(t.title)}</h1>
+      <div class="td-chips">
+        <span class="c-blue">${t.licence === 'C' ? 'Car licence OK' : t.licence + ' licence required'}</span>
+        ${t.instant ? '<span>⚡ Instant book</span>' : '<span>Owner approves bookings</span>'}
+        <span>${t.trans}</span><span>${t.seats} seats</span>
+        ${t.sample ? '<span>Sample listing</span>' : '<span>New listing</span>'}
+      </div>
+      ${held && !canDrive(held, t.licence) ? `<div class="notice notice-warn"><span class="notice-ico">!</span><div><b>Your ${held} licence doesn't cover this truck.</b>It needs ${lic.name}. <a href="trucks.html?licence=${held}">See trucks you can drive</a></div></div>` : ''}
+    </div>
+
+    <h3 style="margin-top:22px">Specs</h3>
+    <dl class="spec-grid">
+      <div><dt>GVM</dt><dd>${(t.gvm / 1000).toFixed(2).replace(/\.?0+$/, '')} t</dd></div>
+      <div><dt>Payload</dt><dd>${(t.payload / 1000).toFixed(1)} t</dd></div>
+      <div><dt>${t.m3 ? 'Volume' : 'Deck'}</dt><dd>${t.m3 ? t.m3 + ' m³' : esc(t.deck)}</dd></div>
+      <div><dt>Load area</dt><dd>${esc(t.deck)}</dd></div>
+      <div><dt>Make / year</dt><dd>${esc(t.make)} ${t.year}</dd></div>
+      <div><dt>Licence</dt><dd>${t.licence}</dd></div>
+    </dl>
+
+    <h3 style="margin-top:26px">Features</h3>
+    <ul class="feat-list">${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}<li>${t.fuel}</li></ul>
+
+    <h3 style="margin-top:26px">Kilometres &amp; fuel</h3>
+    <p>${t.kmDay} km included per day, then ${money(t.extraKm, 2)}/km. Return it with the same fuel level you picked it up with.</p>
+
+    <h3 style="margin-top:26px">Availability</h3>
+    <div class="panel"><div id="cal"></div></div>
+
+    <h3 style="margin-top:26px">Your licence</h3>
+    <div class="panel panel-sky"><b>${lic.name}</b> — ${lic.gvm}. ${lic.plain}<br><a class="small" href="licence-guide.html">How licence classes work →</a></div>
+
+    <h3 style="margin-top:26px">Owner</h3>
+    <div class="owner-card"><div class="avatar">${(t.ownerName || t.make)[0]}</div><div><b>${t.ownerName ? esc(t.ownerName) : (t.owner === 'Business' ? 'Verified business owner' : 'Verified private owner')}</b><div class="small muted">ABN, rego &amp; insurance checked · Pick-up in ${esc(t.suburb)}</div></div></div>
+
+    <h3 style="margin-top:26px">Before you book</h3>
+    <ul class="checklist">
+      <li><div><b>Bring your licence &amp; ID</b><span>The owner checks it matches your verified profile at pick-up.</span></div></li>
+      <li><div><b>Do the photo walk-around</b><span>Both of you photograph the truck in the app at pick-up and return.</span></div></li>
+      <li><div><b>Load it legally</b><span>Stay under the ${(t.payload / 1000).toFixed(1)} t payload and restrain your load.</span></div></li>
+    </ul>
+  </div>
+
+  <aside class="td-side" id="book">
+    <div class="book-box">
+      <div><span class="price-big">${money(t.dayRate)}</span> <span class="muted">/ day</span></div>
+      <p class="small muted" style="margin:2px 0 14px">${t.kmDay} km/day included · ${money(t.bond)} bond hold</p>
+      <div class="grid-2">
+        <div class="field"><label for="bFrom">Pick up</label><input type="date" id="bFrom"></div>
+        <div class="field"><label for="bTo">Return</label><input type="date" id="bTo"></div>
+      </div>
+      <div class="field"><label for="bKm">Estimated total km</label><div class="suffix"><input type="number" id="bKm" min="0" step="10" inputmode="numeric" value="${t.kmDay}"><span>km</span></div></div>
+      <div class="field"><span class="lbl">Damage cover</span>
+        <div class="seg" id="bCover">${TH_CONFIG.cover.map(c => `<label><input type="radio" name="cov" value="${c.id}" ${c.id === 'standard' ? 'checked' : ''}><span>${c.name}</span></label>`).join('')}</div>
+        <small class="hint" id="covHint"></small></div>
+      <details style="margin-bottom:14px"><summary style="font-weight:800;cursor:pointer;color:var(--navy)">Add extras</summary>
+        <div style="margin-top:10px">${TH_CONFIG.extras.map(x => `<label class="check"><input type="checkbox" value="${x.id}" class="bx"><span><b>${x.name}</b><small>${money(x.price)} per ${x.per}</small></span></label>`).join('')}</div>
+      </details>
+      <div id="quote"></div>
+      <a class="btn btn-lg btn-block" id="bGo" href="#" style="margin-top:14px">${t.instant ? 'Book now' : 'Request to book'}</a>
+      <p class="small muted center" style="margin:10px 0 0">You won't be charged until ${t.instant ? 'you confirm' : 'the owner accepts'}.</p>
+    </div>
+  </aside>`;
+
+  const cal = Calendar($('#cal'), { blocked, onChange: (a, b) => { st.from = a; st.to = b; $('#bFrom').value = a; $('#bTo').value = b; update(); } });
+  const today = iso(new Date());
+  // default dates: first free day from tomorrow
+  let d = new Date(); d.setDate(d.getDate() + 1); while (blocked.has(iso(d))) d.setDate(d.getDate() + 1);
+  st.from = st.to = iso(d);
+  $('#bFrom').value = $('#bTo').value = st.from; $('#bFrom').min = $('#bTo').min = today;
+  cal.set(st.from, st.to);
+
+  function update() {
+    if (st.to < st.from) st.to = st.from;
+    const q = calcQuote(t, { days: hireDays(st.from, st.to), km: st.km, cover: st.cover, extras: st.extras });
+    $('#quote').innerHTML = quoteHTML(q);
+    $('#covHint').textContent = `${q.cover.name}: ${money(q.cover.excess)} excess${q.cover.perDay ? ' · ' + money(q.cover.perDay) + '/day' : ' · included'}`;
+    const params = new URLSearchParams({ id: t.id, from: st.from, to: st.to, km: st.km, cover: st.cover, extras: st.extras.join(',') });
+    $('#bGo').href = 'book.html?' + params;
+    $('#mBook').innerHTML = `<div class="mb-price">${money(q.total, 0)}<small>${q.days} day${q.days > 1 ? 's' : ''} · total</small></div><a class="btn btn-lg" href="#book">${t.instant ? 'Book now' : 'Request'}</a>`;
+  }
+  $('#bFrom').addEventListener('change', e => { st.from = e.target.value; if (!st.to || st.to < st.from) st.to = st.from; $('#bTo').value = st.to; cal.set(st.from, st.to); update(); });
+  $('#bTo').addEventListener('change', e => { st.to = e.target.value < st.from ? st.from : e.target.value; e.target.value = st.to; cal.set(st.from, st.to); update(); });
+  $('#bKm').addEventListener('input', e => { st.km = e.target.value; update(); });
+  $('#bCover').addEventListener('change', e => { st.cover = e.target.value; update(); });
+  $$('.bx').forEach(x => x.addEventListener('change', () => { st.extras = $$('.bx:checked').map(i => i.value); update(); }));
+  update();
+});
+</script>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <div class="fgrid">
+    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+</div></footer>
+<script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script><script src="assets/js/quote.js"></script>
+</body></html>
