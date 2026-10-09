@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en-AU"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Book your truck | TruckHire.com.au</title><meta name="description" content="Confirm your dates, verify your licence, choose cover and book.">
+<title>Book your truck | TruckRentals.com.au</title><meta name="description" content="Confirm your dates, verify your licence, choose cover and book.">
 <meta name="theme-color" content="#071A3D">
-<meta property="og:title" content="Book your truck | TruckHire.com.au"><meta property="og:description" content="Confirm your dates, verify your licence, choose cover and book."><meta property="og:type" content="website">
+<meta property="og:title" content="Book your truck | TruckRentals.com.au"><meta property="og:description" content="Confirm your dates, verify your licence, choose cover and book."><meta property="og:type" content="website">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head><body class="">
 <a class="sr" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap hdr">
-  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <a class="logo" href="index.html" aria-label="TruckRentals.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Rentals</b><small>.com.au</small></span></a>
   <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
     <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
   </nav>
@@ -96,7 +96,7 @@
     <div class="field" id="declWrap">
       <label class="check"><input type="checkbox" class="decl" required><span><b>Only listed, verified drivers will drive</b><small>Additional drivers must be added and verified.</small></span></label>
       <label class="check"><input type="checkbox" class="decl" required><span><b>I'll load within the legal payload and restrain the load</b><small id="payloadDecl"></small></span></label>
-      <label class="check"><input type="checkbox" class="decl" required><span><b>No driving under the influence, and I'll follow road rules</b><small>Tolls, fines and infringements during the hire are the hirer's responsibility.</small></span></label>
+      <label class="check"><input type="checkbox" class="decl" required><span><b>No driving under the influence, and I'll follow road rules</b><small>Tolls, fines and infringements during the rental are the renter's responsibility.</small></span></label>
       <label class="check"><input type="checkbox" class="decl" required><span><b>No serious licence suspensions or at-fault claims in the last 3 years</b><small>Tell us before booking if this isn't true.</small></span></label>
     </div>
     <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next>Continue to payment</button></div>
@@ -118,7 +118,7 @@
       <div class="field"><label for="cCvc">CVC</label><input type="text" id="cCvc" inputmode="numeric" autocomplete="cc-csc" required pattern="\d{3,4}" data-msg="3 or 4 digits"></div>
     </div>
     <div class="panel panel-sky small" id="payNote"></div>
-    <div class="field"><label class="check"><input type="checkbox" required><span><b>I agree to the <a href="terms.html" target="_blank">hire terms</a> and cancellation policy</b><small>Free cancellation up to 48 hours before pick-up (proposed).</small></span></label></div>
+    <div class="field"><label class="check"><input type="checkbox" required><span><b>I agree to the <a href="terms.html" target="_blank">rental terms</a> and cancellation policy</b><small>Free cancellation up to 48 hours before pick-up (proposed).</small></span></label></div>
     <div class="step-actions"><button class="btn btn-ghost" data-back>Back</button><button class="btn btn-lg" data-next id="payBtn">Pay</button></div>
   </section>
 
@@ -140,7 +140,7 @@ function checkDriver() {
   const age = (now - dob) / 31557600000;
   const minAge = TH_CONFIG.minAge[need] || 21;
   if (!canDrive(cls, need)) return `This truck needs ${licName(need)}. Your ${cls} licence doesn't cover it.`;
-  if ($('#dType').value === 'L') return 'Learner drivers can\'t hire. A full or provisional licence is required.';
+  if ($('#dType').value === 'L') return 'Learner drivers can\'t rent. A full or provisional licence is required.';
   if (need !== 'C' && $('#dType').value !== 'Full') return `A full (open) licence is required for ${need} trucks.`;
   if (age < minAge) return `Drivers must be at least ${minAge} for ${need} trucks.`;
   if ($('#dExp').value < ST.to) return 'Your licence expires before the return date.';
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function runChecks() {
     VERIFIED = false; $('#vNext').disabled = true;
-    const items = ['Licence photo readable', 'Identity document check (DVS)', `Licence class covers ${T.licence}`, 'Licence current for hire dates', 'Selfie matches licence photo'];
+    const items = ['Licence photo readable', 'Identity document check (DVS)', `Licence class covers ${T.licence}`, 'Licence current for rental dates', 'Selfie matches licence photo'];
     $('#vlist').innerHTML = items.map((x, i) => `<li data-i="${i}"><span class="spinner"></span>${x}<span class="st">Checking</span></li>`).join('');
     items.forEach((x, i) => setTimeout(() => {
       const li = $(`#vlist li[data-i="${i}"]`); li.querySelector('.spinner').outerHTML = '<span class="tick">✓</span>';
@@ -238,10 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cover: ST.cover, extras: ST.extras, total: q.total, payout: q.ownerPayout, purpose: (flow.querySelector('[name=purpose]:checked') || {}).value,
         driver: $('#dFirst').value + ' ' + $('#dLast').value, licence: $('#dClass').value, status: T.instant ? 'confirmed' : 'requested', created: Date.now(), note: $('#tNote').value, ownedByMe: !!T.mine };
       Store.push('bookings', booking);
-      Store.set('user', Object.assign(user() || {}, { first: $('#dFirst').value, last: $('#dLast').value, email: $('#dEmail').value, mobile: $('#dMobile').value, licence: $('#dClass').value, verified: true, roles: Array.from(new Set([...(user()?.roles || []), 'hirer'])) }));
-      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TruckHire//EN', 'BEGIN:VEVENT', `UID:${ref}@truckhire.com.au`,
+      Store.set('user', Object.assign(user() || {}, { first: $('#dFirst').value, last: $('#dLast').value, email: $('#dEmail').value, mobile: $('#dMobile').value, licence: $('#dClass').value, verified: true, roles: Array.from(new Set([...(user()?.roles || []), 'renter'])) }));
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TruckRentals//EN', 'BEGIN:VEVENT', `UID:${ref}@truckrentals.com.au`,
         `DTSTART:${ST.from.replace(/-/g, '')}T${$('#tFromT').value.replace(':', '')}00`, `DTEND:${ST.to.replace(/-/g, '')}T${$('#tToT').value.replace(':', '')}00`,
-        `SUMMARY:Truck hire – ${T.title}`, `LOCATION:${T.suburb} ${T.state}`, `DESCRIPTION:Booking ${ref}`, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+        `SUMMARY:Truck rental – ${T.title}`, `LOCATION:${T.suburb} ${T.state}`, `DESCRIPTION:Booking ${ref}`, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
       const icsUrl = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
       $('#done').innerHTML = `<div class="success-badge">✓</div>
         <h2>${T.instant ? 'You\'re booked!' : 'Request sent!'}</h2>
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <li><div><b>Bring your licence</b><span>The owner checks it against your verified profile.</span></div></li>
           <li><div><b>Photo walk-around</b><span>Both sides photograph the truck at pick-up and return.</span></div></li>
         </ul>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn btn-lg" href="${icsUrl}" download="truckhire-${ref}.ics">Add to calendar</a><a class="btn btn-ghost btn-lg" href="dashboard.html">My bookings</a></div>`;
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn btn-lg" href="${icsUrl}" download="truckrentals-${ref}.ics">Add to calendar</a><a class="btn btn-ghost btn-lg" href="dashboard.html">My bookings</a></div>`;
       flow.querySelector('.stepper-head').hidden = true;
       scrollTo({ top: 0, behavior: 'smooth' });
   }}
@@ -261,15 +261,15 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </main>
 <footer class="site-footer"><div class="wrap">
-  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
-  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Rentals</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for renting utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
   <div class="fgrid">
-    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Rent</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=renter">Get verified to drive</a></li></ul></div>
     <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
     <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
   </div>
-  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckRentals.com.au · Prototype preview — listings shown are samples.</span></div>
 </div></footer>
 <script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script><script src="assets/js/quote.js"></script>
 </body></html>

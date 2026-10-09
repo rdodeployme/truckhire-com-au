@@ -1,22 +1,22 @@
-/* TruckHire.com.au — prototype data
+/* TruckRentals.com.au — prototype data
    Everything marked SAMPLE is demo content for the prototype, not real listings.
    Fees, cover tiers and age rules are PROPOSED and need sign-off before launch. */
 
 const TH_CONFIG = {
-  serviceFeePct: 0.10,          // PROPOSED hirer service fee
+  serviceFeePct: 0.10,          // PROPOSED renter service fee
   ownerCommissionPct: 0.12,     // PROPOSED owner commission
   gstPct: 0.10,
   minAge: { C: 21, LR: 21, MR: 25, HR: 25, HC: 25, MC: 25 }, // PROPOSED
   minYearsHeld: { C: 1, LR: 1, MR: 2, HR: 2, HC: 2, MC: 2 },    // PROPOSED (full licence years)
   cover: [
-    { id: 'basic',    name: 'Basic',    perDay: 0,  excess: 5000, note: 'Included with every hire' },
+    { id: 'basic',    name: 'Basic',    perDay: 0,  excess: 5000, note: 'Included with every rental' },
     { id: 'standard', name: 'Standard', perDay: 29, excess: 2000, note: 'Most popular' },
     { id: 'premium',  name: 'Premium',  perDay: 49, excess: 500,  note: 'Lowest excess' }
   ],
   extras: [
-    { id: 'trolley', name: 'Hand trolley',            price: 15, per: 'hire' },
-    { id: 'straps',  name: 'Ratchet straps (×6)',     price: 12, per: 'hire' },
-    { id: 'blankets',name: 'Furniture blankets (×10)',price: 20, per: 'hire' },
+    { id: 'trolley', name: 'Hand trolley',            price: 15, per: 'rental' },
+    { id: 'straps',  name: 'Ratchet straps (×6)',     price: 12, per: 'rental' },
+    { id: 'blankets',name: 'Furniture blankets (×10)',price: 20, per: 'rental' },
     { id: 'driver2', name: 'Additional driver',       price: 15, per: 'day' }
   ]
 };

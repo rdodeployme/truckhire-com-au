@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en-AU"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>List your truck — earn from idle days | TruckHire.com.au</title><meta name="description" content="List your ute, van or truck on TruckHire.com.au. Free to list, you approve every hire, drivers are licence-checked and payouts go straight to your account.">
+<title>List your truck — earn from idle days | TruckRentals.com.au</title><meta name="description" content="List your ute, van or truck on TruckRentals.com.au. Free to list, you approve every rental, drivers are licence-checked and payouts go straight to your account.">
 <meta name="theme-color" content="#071A3D">
-<meta property="og:title" content="List your truck — earn from idle days | TruckHire.com.au"><meta property="og:description" content="List your ute, van or truck on TruckHire.com.au. Free to list, you approve every hire, drivers are licence-checked and payouts go straight to your account."><meta property="og:type" content="website">
+<meta property="og:title" content="List your truck — earn from idle days | TruckRentals.com.au"><meta property="og:description" content="List your ute, van or truck on TruckRentals.com.au. Free to list, you approve every rental, drivers are licence-checked and payouts go straight to your account."><meta property="og:type" content="website">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head><body class="">
 <a class="sr" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap hdr">
-  <a class="logo" href="index.html" aria-label="TruckHire.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
+  <a class="logo" href="index.html" aria-label="TruckRentals.com.au home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Rentals</b><small>.com.au</small></span></a>
   <nav id="siteNav" aria-label="Main"><a href="trucks.html">Find a truck</a><a href="list-your-truck.html">List your truck</a><a href="how-it-works.html">How it works</a><a href="licence-guide.html">Licence guide</a><a href="protection.html">Protection</a><a href="faq.html">Help</a>
     <div class="nav-cta"><a class="btn btn-lg" href="trucks.html">Find a truck</a><a class="btn btn-ghost btn-lg" href="owner-register.html">List your truck</a><a class="btn btn-ghost btn-lg" href="signup.html">Log in or sign up</a></div>
   </nav>
@@ -27,13 +27,13 @@
       <h1>Your truck.<br><em>Earning on its days off.</em></h1>
       <p class="lede">Tradies, transport operators and businesses: list the truck that sits idle, set your rates, and approve every licence-checked driver.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><a class="btn btn-white btn-lg" href="owner-register.html">List my truck — free</a><a class="btn btn-outline-w btn-lg" href="#earn">Estimate earnings</a></div>
-      <ul class="hero-badges"><li>Free to list</li><li>You set the price</li><li>You approve every hire</li></ul>
+      <ul class="hero-badges"><li>Free to list</li><li>You set the price</li><li>You approve every rental</li></ul>
     </div>
     <div class="earn" id="earn">
       <h3 style="margin-bottom:12px">What could it earn?</h3>
       <div class="field"><label for="eType">Truck type</label><select id="eType"></select></div>
       <div class="field"><div class="range-row"><label for="eRate">Daily rate</label><span id="eRateOut"></span></div><input type="range" id="eRate" min="60" max="900" step="10"></div>
-      <div class="field"><div class="range-row"><label for="eDays">Days hired per week</label><span id="eDaysOut"></span></div><input type="range" id="eDays" min="1" max="6" step="1" value="2"></div>
+      <div class="field"><div class="range-row"><label for="eDays">Days rented per week</label><span id="eDaysOut"></span></div><input type="range" id="eDays" min="1" max="6" step="1" value="2"></div>
       <div class="earn-out"><span>Estimated payout per year</span><b id="eYear">$0</b><span id="eMonth"></span></div>
       <p class="small muted" style="margin:10px 0 0">Estimate only, after the proposed ${Math.round(0)}% commission — not a guarantee of bookings.</p>
     </div>
@@ -44,12 +44,12 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:28px"><span class="eyebrow">Why list here</span><h2>You stay in control.</h2></div>
     <div class="feature-grid">
-      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Approve every hire</h3><p>See the driver's verified licence class and history before you accept. Or switch on instant book for drivers who meet your rules.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Approve every rental</h3><p>See the driver's verified licence class and history before you accept. Or switch on instant book for drivers who meet your rules.</p></div>
       <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Block out your days</h3><p>Your truck is only available on the days you open up. Need it back for work? Block the date.</p></div>
       <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/></svg></div><h3>Drivers matched to GVM</h3><p>We calculate your truck's licence class from its GVM and axles. Nobody without the right licence can book it.</p></div>
       <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><h3>Photo check-in &amp; out</h3><p>Time-stamped photos at pick-up and return. If there's new damage, the evidence is already there.</p></div>
-      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .9 3 2.2-1.4 2-3 2c-1.5 0-2.6-.6-3-1.6"/></svg></div><h3>Bond on every hire</h3><p>You set the bond. It's held on the hirer's card and released after a clean return.</p></div>
-      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3>Payouts after each hire</h3><p>Paid to your nominated account after a completed hire, with a statement for your books.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .9 3 2.2-1.4 2-3 2c-1.5 0-2.6-.6-3-1.6"/></svg></div><h3>Bond on every rental</h3><p>You set the bond. It's held on the renter's card and released after a clean return.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><h3>Payouts after each rental</h3><p>Paid to your nominated account after a completed rental, with a statement for your books.</p></div>
     </div>
   </div>
 </section>
@@ -66,7 +66,7 @@
       <li><div><b>ABN &amp; business details</b><span>If you're listing as a business. Private owners can list too.</span></div></li>
       <li><div><b>Registration details</b><span>Plate, state, expiry and VIN — plus a photo of the rego certificate.</span></div></li>
       <li><div><b>Specs from the compliance plate</b><span>GVM, axles, payload and load area. GVM sets the licence class.</span></div></li>
-      <li><div><b>Insurance that covers hire</b><span>Certificate of currency for cover that allows the vehicle to be hired out.</span></div></li>
+      <li><div><b>Insurance that covers rental</b><span>Certificate of currency for cover that allows the vehicle to be rented out.</span></div></li>
       <li><div><b>4+ good photos</b><span>Front, side, rear and the load area, in daylight.</span></div></li>
       <li><div><b>Bank details for payouts</b><span>BSB and account number in the business or owner's name.</span></div></li>
     </ul>
@@ -77,10 +77,10 @@
   <div class="wrap">
     <div class="center" style="margin-bottom:10px"><span class="eyebrow">Owner questions</span><h2>Good to know</h2></div>
     <div class="faq">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Does my normal insurance cover hiring out my truck?</button><div class="faq-a">Often not — many standard motor policies exclude hire or rental to third parties. Check with your insurer that your policy covers the vehicle being hired out, and upload the certificate of currency when you register. Owner cover through TruckHire is being finalised and will be offered once confirmed.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Who pays for fuel, tolls and fines?</button><div class="faq-a">The hirer. Trucks go out and come back at the same fuel level, and tolls and infringements during the hire are transferred to the hirer through the booking record.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Does my normal insurance cover renting out my truck?</button><div class="faq-a">Often not — many standard motor policies exclude renting the vehicle out to third parties. Check with your insurer that your policy covers the vehicle being rented out, and upload the certificate of currency when you register. Owner cover through TruckRentals is being finalised and will be offered once confirmed.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Who pays for fuel, tolls and fines?</button><div class="faq-a">The renter. Trucks go out and come back at the same fuel level, and tolls and infringements during the rental are transferred to the renter through the booking record.</div></div>
       <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I decline a booking?</button><div class="faq-a">Yes. Unless you've switched on instant book, every booking is a request you accept or decline.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">What does it cost?</button><div class="faq-a">Listing is free. A commission is taken from completed hires only — you'll see your exact payout on every request before you accept.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What does it cost?</button><div class="faq-a">Listing is free. A commission is taken from completed rentals only — you'll see your exact payout on every request before you accept.</div></div>
     </div>
   </div>
 </section>
@@ -111,15 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </main>
 <footer class="site-footer"><div class="wrap">
-  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Hire</b><small>.com.au</small></span></a>
-  <p style="max-width:44ch;margin-top:14px">The marketplace for hiring utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
+  <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#1450F5"/><path d="M7 26V14.5a2 2 0 0 1 2-2h13.5a2 2 0 0 1 2 2V26Z" fill="#fff"/><path d="M24.5 17h5.2l3.8 5v4h-9Z" fill="#fff"/><path d="M26.5 18.8h2.6l2.1 2.9h-4.7Z" fill="#1450F5"/><circle cx="13" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/><circle cx="28.5" cy="27.5" r="3.2" fill="#071A3D" stroke="#fff" stroke-width="1.6"/></svg><span class="logo-word">Truck<b>Rentals</b><small>.com.au</small></span></a>
+  <p style="max-width:44ch;margin-top:14px">The marketplace for renting utes, vans and trucks from local owners — and for owners to earn from trucks that would otherwise sit idle.</p>
   <div class="fgrid">
-    <div><h4>Hire</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=hirer">Get verified to drive</a></li></ul></div>
+    <div><h4>Rent</h4><ul><li><a href="trucks.html">Find a truck</a></li><li><a href="trucks.html?licence=C">Car licence trucks</a></li><li><a href="licence-guide.html">What can I drive?</a></li><li><a href="signup.html?role=renter">Get verified to drive</a></li></ul></div>
     <div><h4>Owners</h4><ul><li><a href="list-your-truck.html">List your truck</a></li><li><a href="owner-register.html">Register a truck</a></li><li><a href="dashboard.html">Owner dashboard</a></li><li><a href="protection.html#owners">Owner protection</a></li></ul></div>
     <div><h4>Company</h4><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="protection.html">Trust &amp; safety</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
   </div>
-  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckHire.com.au · Prototype preview — listings shown are samples.</span></div>
+  <div class="foot-base"><span class="group-line">A Recycle Group initiative — Responsible recovery. Sustainable outcomes.</span><span>© 2026 TruckRentals.com.au · Prototype preview — listings shown are samples.</span></div>
 </div></footer>
 <script src="assets/js/data.js"></script><script src="assets/js/trucks-svg.js"></script><script src="assets/js/app.js"></script>
 </body></html>

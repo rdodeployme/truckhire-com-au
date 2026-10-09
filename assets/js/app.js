@@ -1,4 +1,4 @@
-/* TruckHire.com.au — shared app code */
+/* TruckRentals.com.au — shared app code */
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const money = (n, dp) => '$' + Number(n || 0).toLocaleString('en-AU', { minimumFractionDigits: dp ?? (n % 1 ? 2 : 0), maximumFractionDigits: dp ?? 2 });
